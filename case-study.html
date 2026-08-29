@@ -31,6 +31,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="q12R1sCFDN6vBcXpXGNT2s" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="zhcZIEpyVrGYU6w3FzKThd" />
 
+<!-- Beautiful UI components, ported to vanilla — see assets/bui.css + assets/bui.js -->
+<link rel="stylesheet" href="assets/bui.css" />
+<script src="assets/bui.js" defer></script>
+<script>try{if(sessionStorage.getItem('bui:nav')){document.documentElement.className+=' bui-nav-loading';}}catch(e){}</script>
+
 <style>
 /* ============================================================
    Same design tokens as index.html — keep them in sync.
@@ -293,6 +298,24 @@ footer{ padding:44px 0 54px; position:relative }
 </head>
 
 <body data-page-node-id="CMqzRvW2bPzZCuuqBKIkKw">
+
+<!-- BUI 01 — Loading state: painted before the page finishes parsing,
+     so it covers a real navigation instead of flashing on the way out -->
+<div class="bui-loader" id="buiBootLoader" style="display:none" role="status" aria-live="polite">
+  <div class="bui-loader__box">
+    <div class="bui-loader__top">
+      <span class="bui-loader__ring" aria-hidden="true"><i></i></span>
+      <p class="bui-loader__phase">Loading…</p>
+    </div>
+    <div class="bui-loader__bars" aria-hidden="true">
+      <div class="bui-loader__bar" style="width:100%"><i></i></div>
+      <div class="bui-loader__bar" style="width:92%"><i></i></div>
+      <div class="bui-loader__bar" style="width:78%"><i></i></div>
+      <div class="bui-loader__bar" style="width:56%"><i></i></div>
+    </div>
+    <p class="bui-loader__note">Layout stays put while the page spins up.</p>
+  </div>
+</div>
 <div class="ambient" aria-hidden="true" data-page-node-id="zElSWKJ90zLllZLL6bXZgE"><div class="blob b1" data-page-node-id="UfDULi2GsoJ8lCMRR3JD1D"></div><div class="blob b2" data-page-node-id="MNHw0P6HbHRHfanykAzdyw"></div></div>
 <div class="grain" aria-hidden="true" data-page-node-id="fxFlJo1r5fP7HD8TfXQJyk"></div>
 
@@ -305,7 +328,7 @@ footer{ padding:44px 0 54px; position:relative }
     <button class="icon-btn" id="themeBtn" aria-label="Toggle warm dusk mode" title="Toggle warm dusk mode" data-page-node-id="BIj7nU6smcWMKHvhRQu0U1">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="N2xnXROTFLhVdRdYHLEt3O"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-page-node-id="qHpAS65tCkPJZoM4CvQDqd"/></svg>
     </button>
-    <a class="btn btn-ghost" href="index.html" data-page-node-id="M5On6PKnSOxI4yJrSLM6Ig">← All work</a>
+    <a class="btn btn-ghost" href="index.html" data-bui-nav="Back to all work…" data-page-node-id="M5On6PKnSOxI4yJrSLM6Ig">← All work</a>
     <a class="btn btn-primary" href="index.html#contact" data-page-node-id="Jo8cZHBlCCl2k2zLPXl2tE">Let's talk ↗</a>
   </nav>
 </div>
@@ -313,7 +336,7 @@ footer{ padding:44px 0 54px; position:relative }
 <main data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr">
   <section class="cs-hero" data-page-node-id="2XxcDgm50fiJJ5xPLlUEBW">
     <div class="wrap" data-page-node-id="m4fMItGJGGJdlYB0rK3EEF">
-      <a class="back" href="index.html" data-reveal data-page-node-id="Zs21l6HQ6RefEQDGbjm2XL">← Back to selected work</a>
+      <a class="back" href="index.html" data-reveal data-bui-nav="Back to all work…" data-page-node-id="Zs21l6HQ6RefEQDGbjm2XL">← Back to selected work</a>
       <span class="eyebrow" data-reveal style="--d:60ms" data-page-node-id="IsR295Hl3JmZdjolCNMtBl">Case study · 2026</span>
       <h1 class="display cs-title" data-reveal style="--d:120ms" data-page-node-id="xWSRjYhBXNjii31eEpNHuB">Atlas —<br data-page-node-id="h56YGYmS0eJD6vkeP335Li"/>Query builder</h1>
       <p class="lead cs-sub" data-reveal style="--d:190ms" data-page-node-id="FCBsV43AftlfnpAuVpA4jZ">
@@ -424,6 +447,63 @@ footer{ padding:44px 0 54px; position:relative }
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+
+      <!-- BUI 17 — Code block: the query the builder writes -->
+      <figure class="bui-code" data-bui-code data-reveal>
+        <div class="bui-code__head">
+          <span class="bui-code__lang">sql</span>
+          <span class="bui-code__file">atlas/builder/query.sql</span>
+          <button class="bui-code__copy" type="button" aria-label="Copy code">
+            <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="5" y="5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9 4.2V3.6A1.6 1.6 0 0 0 7.4 2H3.6A1.6 1.6 0 0 0 2 3.6v3.8A1.6 1.6 0 0 0 3.6 9h.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <pre class="bui-code__pre"><code><span class="bui-line"><span class="bui-line__no">1</span><span class="bui-line__code"><span class="t-cm">-- Everything the builder does stays expressible in plain SQL.</span></span></span>
+<span class="bui-line"><span class="bui-line__no">2</span><span class="bui-line__code"><span class="t-kw">SELECT</span></span></span>
+<span class="bui-line"><span class="bui-line__no">3</span><span class="bui-line__code">  o.region<span class="t-pu">,</span></span></span>
+<span class="bui-line"><span class="bui-line__no">4</span><span class="bui-line__code">  <span class="t-fn">COUNT</span><span class="t-pu">(</span><span class="t-kw">DISTINCT</span> o.customer_id<span class="t-pu">)</span> <span class="t-kw">AS</span> accounts<span class="t-pu">,</span></span></span>
+<span class="bui-line is-hot" data-hot data-note="Line 5 — the panel rewrites this live as filters change"><span class="bui-line__no">5</span><span class="bui-line__code">  <span class="t-fn">SUM</span><span class="t-pu">(</span>o.net_amount<span class="t-pu">)</span>             <span class="t-kw">AS</span> revenue</span></span>
+<span class="bui-line"><span class="bui-line__no">6</span><span class="bui-line__code"><span class="t-kw">FROM</span> orders <span class="t-kw">AS</span> o</span></span>
+<span class="bui-line"><span class="bui-line__no">7</span><span class="bui-line__code"><span class="t-kw">WHERE</span> o.status <span class="t-pu">=</span> <span class="t-st">'shipped'</span></span></span>
+<span class="bui-line"><span class="bui-line__no">8</span><span class="bui-line__code">  <span class="t-kw">AND</span> o.created_at <span class="t-pu">&gt;=</span> <span class="t-kw">DATE</span> <span class="t-st">'2026-01-01'</span></span></span>
+<span class="bui-line"><span class="bui-line__no">9</span><span class="bui-line__code"><span class="t-kw">GROUP BY</span> o.region</span></span>
+<span class="bui-line"><span class="bui-line__no">10</span><span class="bui-line__code"><span class="t-kw">HAVING</span> <span class="t-fn">SUM</span><span class="t-pu">(</span>o.net_amount<span class="t-pu">)</span> <span class="t-pu">&gt;</span> <span class="t-nu">50000</span></span></span>
+<span class="bui-line"><span class="bui-line__no">11</span><span class="bui-line__code"><span class="t-kw">ORDER BY</span> revenue <span class="t-kw">DESC</span><span class="t-pu">;</span></span></span></code></pre>
+
+        <figcaption class="bui-code__foot">
+          <span aria-hidden="true"></span>
+          <p>Line 5 — the panel rewrites this live as filters change</p>
+        </figcaption>
+      </figure>
+
+      <!-- BUI 17 — Code block, unified diff variant -->
+      <figure class="bui-code" data-bui-code data-reveal>
+        <div class="bui-code__head">
+          <span class="bui-code__lang">ts</span>
+          <span class="bui-code__file">atlas/builder/query-state.ts</span>
+          <button class="bui-code__copy" type="button" aria-label="Copy code">
+            <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="5" y="5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.3"/><path d="M9 4.2V3.6A1.6 1.6 0 0 0 7.4 2H3.6A1.6 1.6 0 0 0 2 3.6v3.8A1.6 1.6 0 0 0 3.6 9h.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <pre class="bui-code__pre"><code><span class="bui-line" data-diff="-" data-note="Removed — the old model hid the query until submit"><span class="bui-line__no">-</span><span class="bui-line__code"><span class="t-kw">const</span> hiddenQuery <span class="t-pu">=</span> <span class="t-fn">composeQuery</span><span class="t-pu">(</span>filters<span class="t-pu">);</span></span></span>
+<span class="bui-line" data-diff="-"><span class="bui-line__no">-</span><span class="bui-line__code"><span class="t-cm">// Rebuilt on submit, shown nowhere.</span></span></span>
+<span class="bui-line" data-diff="+" data-note="Added — renaming it changed how the team talked about the panel"><span class="bui-line__no">+</span><span class="bui-line__code"><span class="t-kw">const</span> liveQuery <span class="t-pu">=</span> <span class="t-fn">composeQuery</span><span class="t-pu">(</span>filters<span class="t-pu">);</span></span></span>
+<span class="bui-line" data-diff="+"><span class="bui-line__no">+</span><span class="bui-line__code"><span class="t-cm">// Rebuilt on every keystroke, always visible.</span></span></span></code></pre>
+
+        <figcaption class="bui-code__foot">
+          <span aria-hidden="true"></span>
+          <p>The rename is the whole design decision, compressed into one word</p>
+        </figcaption>
+      </figure>
+
     </div>
   </section>
 

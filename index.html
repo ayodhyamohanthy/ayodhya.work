@@ -32,6 +32,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="YwS4AkAzUnwr8d4TgxjekI" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="cGiLwfsLbje50GXVWI4Khn" />
 
+<!-- Beautiful UI components, ported to vanilla — see assets/bui.css + assets/bui.js -->
+<link rel="stylesheet" href="assets/bui.css" />
+<script src="assets/bui.js" defer></script>
+<script>try{if(sessionStorage.getItem('bui:nav')){document.documentElement.className+=' bui-nav-loading';}}catch(e){}</script>
+
 <style>
 /* ============================================================
    DESIGN TOKENS — "Soft / Warm Creative"
@@ -682,6 +687,24 @@ footer{ padding:44px 0 54px; position:relative }
 
 <body data-page-node-id="0wCtXQP5UeejZ1Rlbmzm8z">
 
+<!-- BUI 01 — Loading state: painted before the page finishes parsing,
+     so it covers a real navigation instead of flashing on the way out -->
+<div class="bui-loader" id="buiBootLoader" style="display:none" role="status" aria-live="polite">
+  <div class="bui-loader__box">
+    <div class="bui-loader__top">
+      <span class="bui-loader__ring" aria-hidden="true"><i></i></span>
+      <p class="bui-loader__phase">Loading…</p>
+    </div>
+    <div class="bui-loader__bars" aria-hidden="true">
+      <div class="bui-loader__bar" style="width:100%"><i></i></div>
+      <div class="bui-loader__bar" style="width:92%"><i></i></div>
+      <div class="bui-loader__bar" style="width:78%"><i></i></div>
+      <div class="bui-loader__bar" style="width:56%"><i></i></div>
+    </div>
+    <p class="bui-loader__note">Layout stays put while the page spins up.</p>
+  </div>
+</div>
+
 <!-- ambient background -->
 <div class="ambient" aria-hidden="true" data-page-node-id="rXWomKyRB5lfiV24RGEx3X">
   <div class="blob b1" data-page-node-id="ubo168l7EHxjFzPQEcx0HR"></div>
@@ -707,6 +730,10 @@ footer{ padding:44px 0 54px; position:relative }
     </div>
 
     <div class="nav-actions" data-page-node-id="f1cSi4xalB4p4ydOVlscpT">
+      <button class="bui-kbtn" id="buiKbtn" type="button" aria-label="Open command palette" title="Search — ⌘K">
+        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="4.8" stroke="currentColor" stroke-width="1.5"/><path d="M11.6 11.6 15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <kbd>&#8984;K</kbd>
+      </button>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle warm dusk mode" title="Toggle warm dusk mode" data-page-node-id="RoOvkuwT5yT4kfDyYvSik1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KBFT554GSqL3a7WZC8wYGf">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-page-node-id="LZlAO1zzhkva7GlPHVwSnf"/>
@@ -798,9 +825,20 @@ footer{ padding:44px 0 54px; position:relative }
         </p>
       </div>
 
+      <!-- BUI 13 — Filter table, reworked as a natural-language work filter -->
+      <div class="bui-filter" id="workFilter" data-reveal>
+        <form class="bui-filter__form" autocomplete="off">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.2 9.3 6 13 7.3 9.3 8.6 8 12.4 6.7 8.6 3 7.3 6.7 6z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <input type="text" placeholder="Describe what you want to see — research, design systems, 2025…" aria-label="Filter projects" />
+          <button class="bui-filter__go" type="submit">filter</button>
+        </form>
+        <div class="bui-filter__row"></div>
+        <p class="bui-filter__status" aria-live="polite"></p>
+      </div>
+
       <div class="work-grid" data-page-node-id="3rGy9WJd9NhxBKDaVd9toW">
 
-        <a class="card" href="case-study.html" data-reveal data-tilt data-page-node-id="l8wU95SrCmJv7LwIZn5Qwy">
+        <a class="card" href="case-study.html" data-reveal data-tilt data-discipline="product data" data-year="2026" data-bui-nav="Opening Atlas…" data-page-node-id="l8wU95SrCmJv7LwIZn5Qwy">
           <div class="cover" data-page-node-id="wiW4Ad7XonZJda1J9hrTXK">
             <div class="cover-art art-1" data-page-node-id="u7P7UDIXKIV4GpMCZCFvDI"></div>
             <span class="cover-badge" data-page-node-id="CCTGwDOIDxO3CEoFwdShLW">
@@ -821,7 +859,7 @@ footer{ padding:44px 0 54px; position:relative }
           </div>
         </a>
 
-        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-page-node-id="M8Dp9rE6zuxIaTxXs9oOFW">
+        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-discipline="systems ops" data-year="2025" data-bui-nav="Opening Nimbus…" data-page-node-id="M8Dp9rE6zuxIaTxXs9oOFW">
           <div class="cover" data-page-node-id="8P8jgWa5n2G7dI9c2iPEuh">
             <div class="cover-art art-2" data-page-node-id="sCItHFVMRcJKTDh9xdWUsd"></div>
             <span class="cover-badge" data-page-node-id="Udcycj6fKHmS2E9rlERnoA">
@@ -842,7 +880,7 @@ footer{ padding:44px 0 54px; position:relative }
           </div>
         </a>
 
-        <a class="card" href="case-study.html" data-reveal data-tilt data-page-node-id="Lx3BLfnMx2qeMEb4tePi22">
+        <a class="card" href="case-study.html" data-reveal data-tilt data-discipline="research fintech" data-year="2025" data-bui-nav="Opening Ledger…" data-page-node-id="Lx3BLfnMx2qeMEb4tePi22">
           <div class="cover" data-page-node-id="j5Xseep2Lrycl21pDgGu3S">
             <div class="cover-art art-3" data-page-node-id="fPbYV0FNGqA7exnwA4GryH"></div>
             <span class="cover-badge" data-page-node-id="mTeHewfXPIbvhitt135RQE">
@@ -863,7 +901,7 @@ footer{ padding:44px 0 54px; position:relative }
           </div>
         </a>
 
-        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-page-node-id="TeGJaq5ZbBH0v7g1U9Pjbr">
+        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-discipline="interaction research b2b" data-year="2024" data-bui-nav="Opening Signal…" data-page-node-id="TeGJaq5ZbBH0v7g1U9Pjbr">
           <div class="cover" data-page-node-id="3sTAIe9daY6JU8GLBFaomS">
             <div class="cover-art art-4" data-page-node-id="W6IMkx39FgE2ae7EERQxEJ"></div>
             <span class="cover-badge" data-page-node-id="QwOoVjLcrFUe0lAFWSTBo6">
@@ -950,6 +988,86 @@ footer{ padding:44px 0 54px; position:relative }
                 <h3 data-page-node-id="u083gJYRRS4D0aX65V7mDH">Measure the outcome</h3>
                 <p data-page-node-id="L5EgtBA1idXy9VPChcjvD8">If we can't say what changed for the user, we decorated.</p>
               </div>
+            </div>
+          </div>
+
+          <!-- BUI 16 — Flowchart: how a project actually moves -->
+          <div class="bui-flow" data-reveal>
+            <div class="bui-flow__cap">
+              <h3>How a project moves</h3>
+              <p>trigger &rarr; 3 steps &rarr; 1 loop</p>
+            </div>
+
+            <div class="bui-flow__body">
+
+              <div class="bui-node" data-kind="trigger">
+                <span class="bui-node__kind">trigger</span>
+                <p class="bui-node__title">New brief</p>
+                <p class="bui-node__desc">A problem arrives, usually with a constraint already attached to it.</p>
+              </div>
+
+              <span class="bui-flow__link" aria-hidden="true">
+                <svg viewBox="0 0 14 26" fill="none"><path d="M7 0 V19" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M3.6 15.4 7 19.4 10.4 15.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+
+              <div class="bui-node" data-kind="step">
+                <span class="bui-node__kind">step 01</span>
+                <p class="bui-node__title">Map the constraint</p>
+                <p class="bui-node__desc">Legacy data, a two-week window, one engineer. Written down before anything is sketched.</p>
+              </div>
+
+              <span class="bui-flow__link" aria-hidden="true">
+                <svg viewBox="0 0 14 26" fill="none"><path d="M7 0 V19" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M3.6 15.4 7 19.4 10.4 15.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+
+              <div class="bui-node" data-kind="condition">
+                <span class="bui-node__kind">condition</span>
+                <p class="bui-node__title">Is the constraint actually real?</p>
+                <p class="bui-node__desc">Something I can negotiate — or physics?</p>
+              </div>
+
+              <span class="bui-flow__split" aria-hidden="true">
+                <svg viewBox="0 0 520 58" fill="none">
+                  <path d="M260 0 V12 Q260 18 254 18 H131 Q125 18 125 24 V44" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4"/>
+                  <path d="M260 0 V12 Q260 18 266 18 H389 Q395 18 395 24 V44" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4"/>
+                  <path d="M121 39 L125 45 L129 39" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M391 39 L395 45 L399 39" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+
+              <div class="bui-flow__branch">
+                <div>
+                  <span class="bui-flow__tag">yes</span>
+                  <div class="bui-node" data-kind="step">
+                    <span class="bui-node__kind">step 02a</span>
+                    <p class="bui-node__title">Design inside the limit</p>
+                    <p class="bui-node__desc">The constraint becomes the concept. Edge cases get drawn before the happy path.</p>
+                  </div>
+                </div>
+                <div>
+                  <span class="bui-flow__tag">no</span>
+                  <div class="bui-node" data-kind="step">
+                    <span class="bui-node__kind">step 02b</span>
+                    <p class="bui-node__title">Go find the real one</p>
+                    <p class="bui-node__desc">Interviews, instrumentation, session replays. Come back with evidence, not opinions.</p>
+                  </div>
+                </div>
+              </div>
+
+              <span class="bui-flow__join" aria-hidden="true">
+                <svg viewBox="0 0 520 52" fill="none">
+                  <path d="M125 0 V14 Q125 20 131 20 H254 Q260 20 260 26 V40" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4"/>
+                  <path d="M395 0 V14 Q395 20 389 20 H266 Q260 20 260 26 V40" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4"/>
+                  <path d="M256 35 L260 41 L264 35" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+
+              <div class="bui-node" data-kind="outcome">
+                <span class="bui-node__kind">outcome</span>
+                <p class="bui-node__title">Ship, then measure</p>
+                <p class="bui-node__desc">If nothing changed for the user, it was decoration — and the loop starts again.</p>
+              </div>
+
             </div>
           </div>
         </div>
