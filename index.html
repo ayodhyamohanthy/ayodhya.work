@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day" data-page-node-id="UIx1Y3fJ2wA2jxkAhkRi73">
+<head data-page-node-id="20Zs5I4Gk0f472DXcNDImq">
+<meta charset="UTF-8" data-page-node-id="HsAlQ1cesDR2ibmPfNN5Nc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="U4OS4diLFb4qWHomOWHYZe" />
+<title>Ayodhya Ram Mohanthy — Product Designer</title>
+<meta name="description" content="Product / UX designer building calm, high-clarity interfaces for complex systems. Selected work, experience and contact." data-page-node-id="gapa8cJNradVU7GvSIqzVN" />
+
+<link rel="canonical" href="https://ayodhya.work/" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="assets/manifest.webmanifest" />
+<meta name="theme-color" content="#FDF7F1" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#241C16" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ayodhya Ram Mohanthy" />
+<meta property="og:title" content="Ayodhya Ram Mohanthy — Product Designer" />
+<meta property="og:description" content="I design calm interfaces for messy systems. Six years of selected work, experience, and contact." />
+<meta property="og:url" content="https://ayodhya.work/" />
+<meta property="og:image" content="https://ayodhya.work/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Ayodhya Ram Mohanthy — Product Designer" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ayodhya Ram Mohanthy — Product Designer" />
+<meta name="twitter:description" content="I design calm interfaces for messy systems. Selected work, experience, and contact." />
+<meta name="twitter:image" content="https://ayodhya.work/assets/og-image.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="517waa38Qtsou7HJdx3z6n" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="YwS4AkAzUnwr8d4TgxjekI" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="cGiLwfsLbje50GXVWI4Khn" />
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — "Soft / Warm Creative"
+   Paste these into Framer → Assets → Colors
+   ============================================================ */
+:root{
+  /* surfaces — warm neutrals */
+  --cream:      #FDF7F1;
+  --cream-2:    #F8EDE2;
+  --blush:      #F6E3DA;
+  --surface:    #FFFFFF;
+  --surface-2:  #FFFBF7;
+
+  /* ink */
+  --ink:        #33291F;
+  --ink-soft:   #7A6857;
+  --ink-faint:  #A89687;
+
+  /* accents — muted, sun-faded */
+  --peach:      #E99568;
+  --apricot:    #F7C08A;
+  --rose:       #E49DA4;
+  --sage:       #A9C4A2;
+  --lilac:      #C0AEDA;
+  --butter:     #F2D79B;
+
+  --line:       rgba(51,41,31,.10);
+  --line-2:     rgba(51,41,31,.16);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --wrap: 1200px;
+  --pad: clamp(20px, 5vw, 48px);
+
+  --r-sm: 14px;
+  --r:    22px;
+  --r-lg: 34px;
+  --r-xl: 46px;
+
+  --shadow-sm: 0 2px 8px rgba(90,60,35,.05), 0 10px 30px -12px rgba(90,60,35,.10);
+  --shadow:    0 4px 14px rgba(90,60,35,.06), 0 24px 60px -20px rgba(90,60,35,.18);
+  --shadow-lg: 0 8px 24px rgba(90,60,35,.08), 0 48px 90px -30px rgba(90,60,35,.24);
+
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+}
+
+/* warm dusk mode */
+[data-theme="dusk"]{
+  --cream:     #241C16;
+  --cream-2:   #2C231B;
+  --blush:     #3A2C23;
+  --surface:   #302619;
+  --surface-2: #362B1F;
+
+  --ink:       #F6EDE3;
+  --ink-soft:  #C4AF9E;
+  --ink-faint: #93806F;
+
+  --peach:     #F0A97F;
+  --apricot:   #F9CB9C;
+  --rose:      #EEAEB4;
+  --sage:      #B6CFAD;
+  --lilac:     #CDBCE4;
+  --butter:    #F5DFA9;
+
+  --line:      rgba(246,237,227,.12);
+  --line-2:    rgba(246,237,227,.20);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.20), 0 10px 30px -12px rgba(0,0,0,.40);
+  --shadow:    0 4px 14px rgba(0,0,0,.24), 0 24px 60px -20px rgba(0,0,0,.50);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.28), 0 48px 90px -30px rgba(0,0,0,.60);
+}
+
+*,*::before,*::after{ box-sizing:border-box }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font-sans);
+  font-size:16px;
+  line-height:1.65;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  transition:background .6s var(--ease-soft), color .6s var(--ease-soft);
+}
+
+/* ---------- ambient layer: soft drifting blobs ---------- */
+.ambient{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden }
+.blob{
+  position:absolute; border-radius:50%;
+  filter:blur(70px);
+  opacity:.55;
+  will-change:transform;
+}
+.blob.b1{ width:640px; height:640px; top:-220px; left:-160px;
+  background:radial-gradient(circle at 30% 30%, var(--apricot), transparent 68%);
+  animation:drift1 26s var(--ease-soft) infinite alternate }
+.blob.b2{ width:560px; height:560px; top:22%; right:-200px;
+  background:radial-gradient(circle at 60% 40%, var(--rose), transparent 68%);
+  animation:drift2 32s var(--ease-soft) infinite alternate }
+.blob.b3{ width:520px; height:520px; bottom:-180px; left:22%;
+  background:radial-gradient(circle at 50% 50%, var(--lilac), transparent 68%);
+  opacity:.40;
+  animation:drift3 29s var(--ease-soft) infinite alternate }
+@keyframes drift1{ from{transform:translate(0,0) scale(1)} to{transform:translate(90px,70px) scale(1.14)} }
+@keyframes drift2{ from{transform:translate(0,0) scale(1.05)} to{transform:translate(-80px,90px) scale(.9)} }
+@keyframes drift3{ from{transform:translate(0,0) scale(.95)} to{transform:translate(70px,-80px) scale(1.12)} }
+
+/* ---------- paper grain ---------- */
+.grain{
+  position:fixed; inset:0; z-index:1; pointer-events:none;
+  opacity:.32; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+[data-theme="dusk"] .grain{ mix-blend-mode:overlay; opacity:.18 }
+
+/* ---------- soft cursor glow ---------- */
+.cursor{
+  position:fixed; top:0; left:0; z-index:2;
+  width:340px; height:340px; margin:-170px 0 0 -170px;
+  border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(233,149,104,.30), transparent 62%);
+  filter:blur(26px);
+  opacity:0; transform:scale(.6);
+  transition:opacity .5s var(--ease-soft);
+  will-change:transform;
+}
+@media (hover:hover) and (pointer:fine){ .cursor{ opacity:1 } }
+
+a{ color:inherit; text-decoration:none }
+img{ max-width:100%; display:block }
+::selection{ background:var(--peach); color:#fff }
+
+:focus-visible{ outline:2.5px solid var(--peach); outline-offset:3px; border-radius:6px }
+
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 var(--pad); position:relative; z-index:3 }
+
+/* ============================================================
+   TYPE
+   ============================================================ */
+.display{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2.7rem, 8.2vw, 6.6rem);
+  line-height:.98;
+  letter-spacing:-.03em;
+  margin:0;
+  font-variation-settings:'SOFT' 60, 'WONK' 1;
+}
+.h1{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2rem, 5.2vw, 3.7rem);
+  line-height:1.03; letter-spacing:-.025em; margin:0;
+  font-variation-settings:'SOFT' 60, 'WONK' 1;
+}
+.h2{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(1.3rem, 2.4vw, 1.85rem);
+  line-height:1.2; letter-spacing:-.015em; margin:0;
+}
+.lead{ font-size:clamp(1.02rem, 1.45vw, 1.22rem); color:var(--ink-soft); line-height:1.68; font-weight:400 }
+.body{ color:var(--ink-soft); line-height:1.75 }
+
+.eyebrow{
+  font-size:11px; font-weight:600; letter-spacing:.19em;
+  text-transform:uppercase; color:var(--ink-faint);
+  display:inline-flex; align-items:center; gap:9px;
+}
+.eyebrow::before{
+  content:""; width:22px; height:1.5px; border-radius:2px;
+  background:var(--peach); opacity:.8;
+}
+.italic{ font-family:var(--font-display); font-style:italic; font-weight:400 }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav-shell{ position:fixed; top:0; left:0; right:0; z-index:60; padding:16px var(--pad) 0; pointer-events:none }
+.nav{
+  pointer-events:auto;
+  max-width:var(--wrap); margin:0 auto;
+  display:flex; align-items:center; gap:20px;
+  padding:11px 11px 11px 22px;
+  border-radius:100px;
+  background:color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .4s var(--ease), background .4s var(--ease);
+}
+.nav.scrolled{ box-shadow:var(--shadow) }
+
+.brand{ display:flex; align-items:center; gap:11px; font-weight:600; letter-spacing:-.01em; margin-right:auto }
+.brand-mark{
+  width:32px; height:32px; border-radius:11px;
+  display:grid; place-items:center;
+  font-family:var(--font-display); font-weight:600; font-size:16px; color:#fff;
+  background:linear-gradient(140deg, var(--peach), var(--rose));
+  box-shadow:0 4px 12px rgba(233,149,104,.35);
+  flex:none;
+}
+.brand-name{ font-size:14.5px }
+.brand-name span{ color:var(--ink-faint); font-weight:400 }
+
+.nav-links{ display:flex; gap:4px }
+.nav-links a{
+  padding:8px 15px; border-radius:100px; font-size:14px; font-weight:500;
+  color:var(--ink-soft); position:relative;
+  transition:color .3s var(--ease), background .3s var(--ease);
+}
+.nav-links a:hover{ color:var(--ink); background:var(--blush) }
+.nav-links a.active{ color:var(--ink); background:var(--blush) }
+
+.nav-actions{ display:flex; align-items:center; gap:8px }
+
+.icon-btn{
+  width:38px; height:38px; border-radius:50%; flex:none;
+  display:grid; place-items:center; cursor:pointer;
+  background:var(--cream-2); border:1px solid var(--line);
+  color:var(--ink-soft);
+  transition:transform .35s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+.icon-btn:hover{ transform:rotate(-12deg) scale(1.08); color:var(--ink) }
+.icon-btn svg{ width:17px; height:17px }
+
+.btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:11px 20px; border-radius:100px;
+  font-size:14px; font-weight:600; letter-spacing:-.005em;
+  border:1px solid transparent; cursor:pointer;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s var(--ease), color .3s var(--ease);
+  will-change:transform;
+}
+.btn-primary{
+  background:var(--ink); color:var(--cream);
+  box-shadow:0 6px 18px -6px rgba(51,41,31,.45);
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(51,41,31,.5) }
+.btn-ghost{
+  background:var(--surface); color:var(--ink); border-color:var(--line-2);
+  box-shadow:var(--shadow-sm);
+}
+.btn-ghost:hover{ transform:translateY(-2px); background:var(--surface-2) }
+.btn .arw{ transition:transform .35s var(--ease) }
+.btn:hover .arw{ transform:translate(3px,-3px) }
+
+.burger{ display:none }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ padding:clamp(120px,17vh,190px) 0 clamp(60px,9vh,100px); position:relative }
+
+.pill{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:7px 15px 7px 11px; border-radius:100px;
+  background:var(--surface); border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  font-size:12.5px; font-weight:500; color:var(--ink-soft);
+  margin-bottom:26px;
+}
+.dot{
+  width:8px; height:8px; border-radius:50%; background:var(--sage); flex:none;
+  box-shadow:0 0 0 0 rgba(169,196,162,.7);
+  animation:pulse 2.4s var(--ease-soft) infinite;
+}
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(169,196,162,.65) }
+  70%{ box-shadow:0 0 0 9px rgba(169,196,162,0) }
+  100%{ box-shadow:0 0 0 0 rgba(169,196,162,0) }
+}
+
+.hero-grid{ display:grid; grid-template-columns:1.35fr .9fr; gap:clamp(30px,5vw,64px); align-items:end }
+.hero h1{ margin-bottom:26px }
+.hero h1 em{
+  font-style:italic; font-weight:400;
+  background:linear-gradient(100deg, var(--peach), var(--rose) 60%, var(--lilac));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero-lead{ max-width:50ch; margin-bottom:34px }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:12px }
+
+/* portrait card */
+.portrait{
+  position:relative; border-radius:var(--r-xl);
+  overflow:hidden; aspect-ratio:4/5;
+  background:
+    radial-gradient(120% 90% at 25% 15%, var(--apricot), transparent 60%),
+    radial-gradient(110% 90% at 80% 80%, var(--rose), transparent 62%),
+    linear-gradient(160deg, var(--blush), var(--lilac));
+  box-shadow:var(--shadow-lg);
+  display:grid; place-items:center;
+  transform:rotate(2deg);
+  transition:transform .7s var(--ease);
+}
+.portrait:hover{ transform:rotate(0deg) scale(1.015) }
+.portrait-tag{
+  position:absolute; left:16px; bottom:16px; right:16px;
+  padding:12px 16px; border-radius:var(--r);
+  background:color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line);
+  font-size:12.5px; color:var(--ink-soft);
+}
+.portrait-tag b{ color:var(--ink); font-weight:600 }
+.portrait-initials{
+  font-family:var(--font-display); font-size:clamp(3rem,7vw,5rem);
+  color:color-mix(in srgb, #fff 72%, transparent);
+  letter-spacing:-.03em; font-weight:300;
+}
+
+/* floating stat chips */
+.chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:44px }
+.chip{
+  padding:9px 16px; border-radius:100px;
+  background:var(--surface); border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  font-size:13px; font-weight:500; color:var(--ink-soft);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.chip:hover{ transform:translateY(-3px); box-shadow:var(--shadow) }
+.chip b{ color:var(--ink); font-weight:600 }
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{
+  margin:clamp(50px,8vh,90px) 0;
+  padding:20px 0; overflow:hidden; position:relative;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  background:color-mix(in srgb, var(--surface) 45%, transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marquee-track{ display:flex; width:max-content; animation:slide 34s linear infinite }
+.marquee:hover .marquee-track{ animation-play-state:paused }
+@keyframes slide{ to{ transform:translateX(-50%) } }
+.marquee-item{
+  display:flex; align-items:center; gap:26px; padding-right:26px;
+  font-family:var(--font-display); font-size:clamp(1.15rem,2.2vw,1.7rem);
+  font-weight:400; color:var(--ink-soft); white-space:nowrap;
+  font-variation-settings:'SOFT' 60;
+}
+.marquee-item i{ color:var(--peach); font-style:normal; font-size:.7em }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{ position:relative }
+.sec{ padding:clamp(64px,10vh,120px) 0 }
+.sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:clamp(34px,5vw,58px); flex-wrap:wrap }
+.sec-head .eyebrow{ margin-bottom:16px }
+.sec-note{ font-size:14px; color:var(--ink-faint); max-width:34ch }
+
+/* ============================================================
+   WORK
+   ============================================================ */
+.work-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(22px,3vw,38px) }
+.work-grid > *:nth-child(even){ transform:translateY(clamp(0px,4vw,54px)) }
+
+.card{
+  display:block; border-radius:var(--r-lg); overflow:hidden;
+  background:var(--surface); border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  transition:transform .55s var(--ease), box-shadow .55s var(--ease);
+  will-change:transform;
+}
+.card:hover{ box-shadow:var(--shadow-lg) }
+
+.cover{
+  position:relative; aspect-ratio:4/3; overflow:hidden;
+  display:grid; place-items:center;
+}
+.cover::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 45%, rgba(51,41,31,.18));
+}
+.cover-label{
+  position:relative; z-index:2; font-size:11px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(255,255,255,.9);
+  padding:7px 14px; border-radius:100px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.cover-art{
+  position:absolute; inset:0;
+  transition:transform .9s var(--ease);
+}
+.card:hover .cover-art{ transform:scale(1.06) }
+
+/* soft geometric cover artwork */
+.art-1{ background:
+  radial-gradient(75% 65% at 22% 20%, var(--apricot), transparent 62%),
+  radial-gradient(65% 70% at 82% 78%, var(--peach), transparent 60%),
+  linear-gradient(150deg, #FBE7D6, #F3D3C2) }
+.art-2{ background:
+  radial-gradient(70% 70% at 78% 24%, var(--lilac), transparent 62%),
+  radial-gradient(60% 60% at 20% 80%, var(--rose), transparent 60%),
+  linear-gradient(150deg, #F0E4F2, #E4D6EE) }
+.art-3{ background:
+  radial-gradient(70% 65% at 30% 76%, var(--sage), transparent 62%),
+  radial-gradient(65% 60% at 76% 22%, var(--butter), transparent 60%),
+  linear-gradient(150deg, #E7EDDF, #DCE6D6) }
+.art-4{ background:
+  radial-gradient(68% 68% at 72% 72%, var(--rose), transparent 62%),
+  radial-gradient(62% 62% at 24% 26%, var(--apricot), transparent 60%),
+  linear-gradient(150deg, #F8E0DC, #F0D2D4) }
+
+.cover-badge{
+  position:absolute; z-index:2; right:16px; top:16px;
+  width:42px; height:42px; border-radius:50%;
+  display:grid; place-items:center;
+  background:var(--surface); color:var(--ink);
+  box-shadow:var(--shadow-sm);
+  opacity:0; transform:scale(.6) rotate(-25deg);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+}
+.card:hover .cover-badge{ opacity:1; transform:scale(1) rotate(0deg) }
+.cover-badge svg{ width:16px; height:16px }
+
+.card-body{ padding:24px 26px 28px }
+.card-top{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; margin-bottom:10px }
+.card-title{ font-family:var(--font-display); font-size:1.3rem; font-weight:500; letter-spacing:-.015em; margin:0 }
+.card-year{ font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums; flex:none }
+.card-desc{ font-size:14.5px; color:var(--ink-soft); line-height:1.65; margin:0 0 18px; max-width:44ch }
+.card-desc b{ color:var(--ink); font-weight:600 }
+
+.tags{ display:flex; flex-wrap:wrap; gap:7px }
+.tag{
+  font-size:11.5px; font-weight:500; padding:5px 12px; border-radius:100px;
+  background:var(--cream-2); color:var(--ink-soft); border:1px solid var(--line);
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(28px,5vw,64px); align-items:start }
+.about-portrait{
+  border-radius:var(--r-lg); overflow:hidden; aspect-ratio:3/4;
+  background:
+    radial-gradient(80% 70% at 30% 20%, var(--butter), transparent 62%),
+    radial-gradient(70% 70% at 78% 84%, var(--sage), transparent 60%),
+    linear-gradient(160deg, var(--blush), var(--lilac));
+  box-shadow:var(--shadow); position:relative;
+  display:grid; place-items:center;
+}
+.about-portrait span{
+  font-family:var(--font-display); font-size:clamp(2.6rem,5vw,3.8rem);
+  color:rgba(255,255,255,.72); font-weight:300;
+}
+.about-copy{ font-size:clamp(1rem,1.3vw,1.1rem); color:var(--ink-soft); line-height:1.8 }
+.about-copy p{ margin:0 0 22px }
+.about-copy strong{ color:var(--ink); font-weight:600 }
+.about-copy em{
+  font-family:var(--font-display); font-style:italic;
+  background:linear-gradient(100deg,var(--peach),var(--rose));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+.principles{ margin-top:38px; display:grid; gap:2px; border-radius:var(--r); overflow:hidden; background:var(--line) }
+.principle{
+  background:var(--surface); padding:22px 24px;
+  display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start;
+  transition:background .35s var(--ease);
+}
+.principle:hover{ background:var(--surface-2) }
+.principle-num{
+  font-family:var(--font-display); font-size:15px; font-weight:600;
+  color:var(--peach); padding-top:2px; font-variant-numeric:tabular-nums;
+}
+.principle h3{ margin:0 0 5px; font-size:15.5px; font-weight:600; letter-spacing:-.01em }
+.principle p{ margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.65 }
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.timeline{ border-top:1px solid var(--line) }
+.role{
+  display:grid; grid-template-columns:150px 1fr auto; gap:clamp(16px,3vw,40px);
+  align-items:start; padding:28px 20px; margin:0 -20px;
+  border-bottom:1px solid var(--line); border-radius:var(--r);
+  transition:background .4s var(--ease), padding-left .4s var(--ease);
+}
+.role:hover{ background:var(--surface); padding-left:28px }
+.role-year{ font-size:13px; color:var(--ink-faint); font-variant-numeric:tabular-nums; padding-top:5px; white-space:nowrap }
+.role-title{ font-family:var(--font-display); font-size:clamp(1.1rem,1.9vw,1.4rem); font-weight:500; letter-spacing:-.015em; margin:0 0 4px }
+.role-co{ font-size:14px; color:var(--peach); font-weight:500; margin:0 0 10px }
+.role-desc{ font-size:14.5px; color:var(--ink-soft); line-height:1.7; margin:0; max-width:56ch }
+.role-loc{
+  font-size:12px; color:var(--ink-faint); padding:6px 13px; border-radius:100px;
+  background:var(--cream-2); border:1px solid var(--line); white-space:nowrap;
+}
+
+/* ============================================================
+   TOOLKIT
+   ============================================================ */
+.toolkit{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px }
+.tool{
+  padding:10px 18px; border-radius:100px; font-size:14px; font-weight:500;
+  background:var(--surface); border:1px solid var(--line); color:var(--ink-soft);
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease), background .3s var(--ease), color .3s var(--ease);
+  cursor:default;
+}
+.tool:hover{ transform:translateY(-3px) rotate(-1deg); background:var(--ink); color:var(--cream); border-color:var(--ink) }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{
+  border-radius:var(--r-xl); padding:clamp(44px,7vw,86px) clamp(26px,5vw,64px);
+  text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(80% 90% at 20% 10%, var(--apricot), transparent 58%),
+    radial-gradient(75% 90% at 84% 86%, var(--rose), transparent 58%),
+    linear-gradient(160deg, var(--blush), var(--lilac));
+  box-shadow:var(--shadow-lg);
+}
+.contact h2{ margin-bottom:18px }
+.contact p{ margin:0 auto 34px; max-width:44ch; color:color-mix(in srgb, var(--ink) 72%, transparent); font-size:clamp(1rem,1.35vw,1.12rem) }
+
+.email{
+  display:inline-flex; align-items:center; gap:12px;
+  font-family:var(--font-display); font-size:clamp(1.3rem,3.4vw,2.3rem);
+  font-weight:400; letter-spacing:-.02em; margin-bottom:34px;
+  position:relative; padding-bottom:4px;
+}
+.email::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+  background:currentColor; border-radius:2px;
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+.email:hover::after{ transform:scaleX(1) }
+.email svg{ width:.68em; height:.68em; opacity:.55; transition:transform .45s var(--ease) }
+.email:hover svg{ transform:translate(4px,-4px) }
+
+.socials{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px }
+.social{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 19px; border-radius:100px;
+  background:color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.4);
+  font-size:14px; font-weight:500;
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.social:hover{ transform:translateY(-3px); box-shadow:var(--shadow) }
+.social svg{ width:13px; height:13px; opacity:.6 }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ padding:44px 0 54px; position:relative }
+.footer-inner{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:20px; flex-wrap:wrap;
+  padding-top:28px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink-faint);
+}
+.footer-inner a:hover{ color:var(--ink) }
+.to-top{
+  display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+  background:none; border:none; font:inherit; color:inherit;
+  transition:color .3s var(--ease);
+}
+.to-top:hover{ color:var(--ink) }
+.to-top svg{ width:14px; height:14px }
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+[data-reveal]{ opacity:0; transform:translateY(22px) }
+[data-reveal].in{
+  opacity:1; transform:none;
+  transition:opacity .85s var(--ease), transform .85s var(--ease);
+  transition-delay:var(--d, 0ms);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px){
+  .hero-grid{ grid-template-columns:1fr 1fr }
+  .about-grid{ grid-template-columns:1fr }
+  .about-portrait{ max-width:340px }
+}
+@media (max-width: 860px){
+  .nav-links{ display:none }
+  .burger{ display:grid }
+  .hero-grid{ grid-template-columns:1fr; gap:38px; align-items:start }
+  .portrait{ max-width:300px; aspect-ratio:1/1; border-radius:var(--r-lg) }
+  .work-grid{ grid-template-columns:1fr }
+  .work-grid > *:nth-child(even){ transform:none }
+  .role{ grid-template-columns:1fr; gap:8px }
+  .role-year{ padding-top:0 }
+  .role-loc{ justify-self:start }
+}
+@media (max-width: 560px){
+  .brand-name span{ display:none }
+  .sec-head{ align-items:flex-start }
+  .card-body{ padding:20px 20px 24px }
+}
+
+/* mobile menu */
+.sheet{
+  position:fixed; inset:0; z-index:55;
+  background:color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+  display:flex; flex-direction:column; justify-content:center; gap:6px;
+  padding:0 var(--pad);
+  opacity:0; visibility:hidden;
+  transition:opacity .45s var(--ease), visibility .45s var(--ease);
+}
+.sheet.open{ opacity:1; visibility:visible }
+.sheet a{
+  font-family:var(--font-display); font-size:2.3rem; font-weight:400;
+  letter-spacing:-.02em; padding:10px 0;
+  border-bottom:1px solid var(--line);
+  opacity:0; transform:translateY(16px);
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+}
+.sheet.open a{ opacity:1; transform:none }
+.sheet.open a:nth-child(1){ transition-delay:.06s }
+.sheet.open a:nth-child(2){ transition-delay:.12s }
+.sheet.open a:nth-child(3){ transition-delay:.18s }
+.sheet.open a:nth-child(4){ transition-delay:.24s }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important }
+  [data-reveal]{ opacity:1; transform:none }
+  .cursor{ display:none }
+}
+</style>
+</head>
+
+<body data-page-node-id="0wCtXQP5UeejZ1Rlbmzm8z">
+
+<!-- ambient background -->
+<div class="ambient" aria-hidden="true" data-page-node-id="rXWomKyRB5lfiV24RGEx3X">
+  <div class="blob b1" data-page-node-id="ubo168l7EHxjFzPQEcx0HR"></div>
+  <div class="blob b2" data-page-node-id="YnEc0uQrrQkgAVy1XLQsAL"></div>
+  <div class="blob b3" data-page-node-id="Dc1pcEh6vKoFcBszOMtuut"></div>
+</div>
+<div class="grain" aria-hidden="true" data-page-node-id="GwJBRJDctoVn4f7NkhkzTy"></div>
+<div class="cursor" id="cursor" aria-hidden="true" data-page-node-id="7MrpWIvJb5HVw9liuuSEQd"></div>
+
+<!-- ============================ NAV ============================ -->
+<div class="nav-shell" data-page-node-id="IU1Yr8cSvgaMXQ7WFVtb00">
+  <nav class="nav" id="nav" data-page-node-id="3qcUr71jEDQ55ibZp3ATmJ">
+    <a class="brand" href="#top" data-page-node-id="uO4IGnCPIgmuG2QDegEiQ2">
+      <span class="brand-mark" data-page-node-id="Ec7yDra5YoHOzSStLdH8C1">A</span>
+      <span class="brand-name" data-page-node-id="E9NkEwlBBuGvriUXre7KuU">Ayodhya <span data-page-node-id="In7Uc97dxXU3YMS8F30553">Ram Mohanthy</span></span>
+    </a>
+
+    <div class="nav-links" data-page-node-id="5JgSjDNrnYV4aEYfIr4V44">
+      <a href="#work" data-page-node-id="SAsrs2vj0XpDZmp7XZCR3J">Work</a>
+      <a href="#about" data-page-node-id="bKczeOCwTC0gpAhA1KIxBG">About</a>
+      <a href="#experience" data-page-node-id="LkxCamP0FK9uBBDJ5KAoBL">Experience</a>
+      <a href="#contact" data-page-node-id="BjjeAEPGizbMRQKz72G6BJ">Contact</a>
+    </div>
+
+    <div class="nav-actions" data-page-node-id="f1cSi4xalB4p4ydOVlscpT">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle warm dusk mode" title="Toggle warm dusk mode" data-page-node-id="RoOvkuwT5yT4kfDyYvSik1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KBFT554GSqL3a7WZC8wYGf">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-page-node-id="LZlAO1zzhkva7GlPHVwSnf"/>
+        </svg>
+      </button>
+      <a class="btn btn-primary" href="#contact" data-page-node-id="8UvrfiHGYDxHHRMy8GTABw">Let's talk <span class="arw" data-page-node-id="v6dFb03ynBRVUSZXndWiFl">↗</span></a>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" data-page-node-id="02GnkcV61ofeg6vnb9ZKHo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-page-node-id="Kqu7Oe4i7YIxBueGsdSDk5">
+          <path d="M4 7h16M4 12h16M4 17h16" data-page-node-id="J8YPU1Iqa1OsPvy11kEBXp"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- mobile menu -->
+<div class="sheet" id="sheet" data-page-node-id="j0XMxubtzP51eqju5ckh73">
+  <a href="#work" data-page-node-id="qSMEpN9e9FMSYDAxtPwyF4">Work</a>
+  <a href="#about" data-page-node-id="7Y6W25cqMqH8DWIxd0QO43">About</a>
+  <a href="#experience" data-page-node-id="BfR3sCHkCGBj7BM3ClUvGF">Experience</a>
+  <a href="#contact" data-page-node-id="dkJ1qsKtCQqQfCplmeiL8S">Contact</a>
+</div>
+
+<main id="top" data-page-node-id="1rkOUvXDgp0Yk4qai5ylxa">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" data-page-node-id="2sVNYDANmz0Hlt9pXMTmo1">
+    <div class="wrap" data-page-node-id="pNs2CsmSwJFzMnG4HxPKdH">
+      <div class="hero-grid" data-page-node-id="vyA3sjycSewZP13ni9snzX">
+        <div data-page-node-id="MXAJNcPtMl4Wm8or0gNTpW">
+          <span class="pill" data-reveal data-page-node-id="mJLccLIjDni7bKZVmMZuB8">
+            <span class="dot" data-page-node-id="9IgujBuyDWPELRPF5VVsp5"></span> Available for work — Q4 2026
+          </span>
+
+          <h1 class="display" data-reveal style="--d:80ms" data-page-node-id="EsZ7wWUsbVzilaW53tq2WJ">
+            I design <em data-page-node-id="rg3aptPECr2oqg4NQhgVno">calm</em><br data-page-node-id="aTyNiiOVYwMcsibgc60Wzu"/>interfaces for<br data-page-node-id="cdY1D67xSGNxQvMUswPyF7"/>messy systems.
+          </h1>
+
+          <p class="lead hero-lead" data-reveal style="--d:170ms" data-page-node-id="TFEADEWniMTYtI4BynskAz">
+            Six years turning dense, expert-heavy products into things people
+            understand on the first try. Currently designing data tooling used by
+            analysts at scale.
+          </p>
+
+          <div class="hero-cta" data-reveal style="--d:250ms" data-page-node-id="00DTYPFU4OsJRPi8bgX7SQ">
+            <a class="btn btn-primary" href="#work" data-magnetic data-page-node-id="8w0K5OT564DwoFXvHage4C">See selected work <span class="arw" data-page-node-id="CPutzDHj3kn8ThnFfFPoe0">↗</span></a>
+            <a class="btn btn-ghost" href="#contact" data-magnetic data-page-node-id="z1ASjZhscjljPpaRLiNlpQ">Start a project</a>
+          </div>
+        </div>
+
+        <div data-reveal style="--d:330ms" data-page-node-id="FJQREzeB3vjkVLmPMk9G4O">
+          <div class="portrait" data-page-node-id="jgtGnQ6zPLbmNAppyExcdP">
+            <span class="portrait-initials" data-page-node-id="01iXGgF6AwGkkE9FycJLZ6">AR</span>
+            <div class="portrait-tag" data-page-node-id="LkDh6bBUhGrV9Eejws4zqH">
+              <b data-page-node-id="YMS3dLE7rs5cZAklTMLZVQ">Product Designer</b> · Bengaluru, IN<br data-page-node-id="ChCJNHU1AjOSfjGdu6HDL9"/>
+              Complex B2B · Design systems · Data UX
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" data-reveal style="--d:400ms" data-page-node-id="m3f3G41RpHDoAmgN6UySlF">
+        <span class="chip" data-page-node-id="ziR0RCTCervPWvX4wwmzIE">Currently <b data-page-node-id="kBDPNOoD5r51yB61UjH0O3">Senior Product Designer — Fintech SaaS</b></span>
+        <span class="chip" data-page-node-id="QlYrcnx9xnfJPqydPep5ZU">Focus <b data-page-node-id="BaGr5l9KtYDUogVWdFUHAx">Complex B2B · Design systems · Data UX</b></span>
+        <span class="chip" data-page-node-id="QE5OJETrclVPpmdUwZ3nGq">Open to <b data-page-node-id="XypE2cL0BroJgTUNKEN4hv">Full-time &amp; select freelance</b></span>
+        <span class="chip" data-page-node-id="e0DEGPyG8ryP7sBFQrZhdt">Timezone <b data-page-node-id="oWvcsCZKo11Sg12h01dBbH">IST (GMT+5:30)</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MARQUEE ============================ -->
+  <div class="marquee" aria-hidden="true" data-page-node-id="WJjXsbbHH0ZjiT3W1wMEfs">
+    <div class="marquee-track" id="track" data-page-node-id="oT72rJCl11MCJlm0yIGMaC">
+      <div class="marquee-item" data-page-node-id="QehIxDjIZLcuWNbTp2HZGv">Design systems <i data-page-node-id="6bKAq2v8Nt3uDEQMCq7lwQ">✳</i> User research <i data-page-node-id="6miC6R5gHppbgH7SBOef0T">✳</i> Prototyping <i data-page-node-id="kAVlUP3OS2JUr2M4cA2PUc">✳</i> Data visualisation <i data-page-node-id="0pdk5QtCJOverNZDZqOloC">✳</i> Design ops <i data-page-node-id="4iTaUL4HhIFEkCbCsnynMK">✳</i> Accessibility <i data-page-node-id="p7jiLArTCwPDKkeY6yeDub">✳</i> 0→1 products <i data-page-node-id="TPPtACR9q00eUIyHie5NHq">✳</i> Interaction design <i data-page-node-id="P5dtloLrl70ZutPKzEM5RF">✳</i> </div>
+      <div class="marquee-item" data-page-node-id="upIuECUpqkoVl2LufckU6z">Design systems <i data-page-node-id="kDMrRGGDrP4CsxDWso2LUd">✳</i> User research <i data-page-node-id="ydLruy7xOTSgcG8GAQDjfB">✳</i> Prototyping <i data-page-node-id="4KexDnmy2qSPqFJBvxSSHR">✳</i> Data visualisation <i data-page-node-id="t9WiPGnXuXM5a60oiSukAg">✳</i> Design ops <i data-page-node-id="Je8xklfa0ft2dQF0btiXeq">✳</i> Accessibility <i data-page-node-id="RADhPZhdL8PmSDy601WHPM">✳</i> 0→1 products <i data-page-node-id="iQMwDEcRV8uYc2gnKnjAoi">✳</i> Interaction design <i data-page-node-id="MG3wDNL4y96d40ILq69Ros">✳</i> </div>
+    </div>
+  </div>
+
+  <!-- ============================ WORK ============================ -->
+  <section class="sec" id="work" data-page-node-id="sI3n2yF0Z2Qg0whabERNiu">
+    <div class="wrap" data-page-node-id="yoU7AE9aGzDtgeszFtQWsl">
+      <div class="sec-head" data-page-node-id="n0wh5fEpW62jaU9GVyDGc1">
+        <div data-reveal data-page-node-id="FYJPVYj2lpOdNgyTbLb4kV">
+          <span class="eyebrow" data-page-node-id="LncOigGFlruKAl0ntPomYg">01 — Selected work</span>
+          <h2 class="h1" data-page-node-id="3cqXxaZmOT2A9F8B3SAHbe">Four projects,<br data-page-node-id="iSklKwWFTCSliGRN5VYGdx"/>chosen for the problems.</h2>
+        </div>
+        <p class="sec-note" data-reveal style="--d:90ms" data-page-node-id="qyYDkSETYT8m9LFqPL61Ne">
+          Each one shipped. Each one had a constraint that forced a real decision.
+        </p>
+      </div>
+
+      <div class="work-grid" data-page-node-id="3rGy9WJd9NhxBKDaVd9toW">
+
+        <a class="card" href="case-study.html" data-reveal data-tilt data-page-node-id="l8wU95SrCmJv7LwIZn5Qwy">
+          <div class="cover" data-page-node-id="wiW4Ad7XonZJda1J9hrTXK">
+            <div class="cover-art art-1" data-page-node-id="u7P7UDIXKIV4GpMCZCFvDI"></div>
+            <span class="cover-badge" data-page-node-id="CCTGwDOIDxO3CEoFwdShLW">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="re3OdwxCHhH0gkJXZZubG6"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="92QAxJE6x4OD1GyFCpxqTP"/></svg>
+            </span>
+            <span class="cover-label" data-page-node-id="8GNUdVeoGHUBb3DGCJXeHe">Project cover — 1600 × 1200</span>
+          </div>
+          <div class="card-body" data-page-node-id="yySNwDwuvfBQ8kTKpjdJvz">
+            <div class="card-top" data-page-node-id="L62Q2TfLVONLn0rm3LWQ9C">
+              <h3 class="card-title" data-page-node-id="ezjGLHCCqsLKWb0tHlcNx0">Atlas — Query builder</h3>
+              <span class="card-year" data-page-node-id="nxjRjkbFvlfYWW4h1tyCPT">2026</span>
+            </div>
+            <p class="card-desc" data-page-node-id="Yy90HxVDhpE2ZpPH4BWRfs">
+              Made SQL approachable for analysts who never learned SQL.
+              <b data-page-node-id="zpXC6QD9mYbb9XjnfiDjrG">3× task completion</b> in usability testing.
+            </p>
+            <div class="tags" data-page-node-id="zFsgYcjlSgPMaxO0uhtvr1"><span class="tag" data-page-node-id="BUER4LXzmd1bcCedC3WZ85">Product design</span><span class="tag" data-page-node-id="sOUHFEGZBehWzD00IfIKoG">Data UX</span><span class="tag" data-page-node-id="RQEhRWV4ZHgUTRQ64FAE0i">0 → 1</span></div>
+          </div>
+        </a>
+
+        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-page-node-id="M8Dp9rE6zuxIaTxXs9oOFW">
+          <div class="cover" data-page-node-id="8P8jgWa5n2G7dI9c2iPEuh">
+            <div class="cover-art art-2" data-page-node-id="sCItHFVMRcJKTDh9xdWUsd"></div>
+            <span class="cover-badge" data-page-node-id="Udcycj6fKHmS2E9rlERnoA">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="K9siiNMJIXG3YyLoqLoL9a"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="GLMX43VFWtUDzScG3fTOl0"/></svg>
+            </span>
+            <span class="cover-label" data-page-node-id="FKMVJLaGzC6EOrJB6gLQfR">Project cover — 1600 × 1200</span>
+          </div>
+          <div class="card-body" data-page-node-id="BzCHr69fKoeMGjxs15zm7L">
+            <div class="card-top" data-page-node-id="Gfx4b2MuckdkYuDmdlvC5l">
+              <h3 class="card-title" data-page-node-id="H6fiA9qCc3xzUd4us2fbBc">Nimbus design system</h3>
+              <span class="card-year" data-page-node-id="C7VFSHGB1EDxSAjEBizwJG">2025</span>
+            </div>
+            <p class="card-desc" data-page-node-id="zFBvDm6UZDzYoPie2fl2bD">
+              One token layer, 42 components, four product teams. Cut net-new
+              UI work by <b data-page-node-id="sCN21ZP4qJU7tQVSJDr6Lo">roughly a third</b>.
+            </p>
+            <div class="tags" data-page-node-id="1DO2LGGayrZd6CH5wqfxsI"><span class="tag" data-page-node-id="mF6Nc7H8CHC7DyCeTQ5min">Design system</span><span class="tag" data-page-node-id="jVqHUZ3iu8ZEFSi9qC7LGq">Design ops</span><span class="tag" data-page-node-id="93fOVlVSvNjc1J72HQcluC">Tokens</span></div>
+          </div>
+        </a>
+
+        <a class="card" href="case-study.html" data-reveal data-tilt data-page-node-id="Lx3BLfnMx2qeMEb4tePi22">
+          <div class="cover" data-page-node-id="j5Xseep2Lrycl21pDgGu3S">
+            <div class="cover-art art-3" data-page-node-id="fPbYV0FNGqA7exnwA4GryH"></div>
+            <span class="cover-badge" data-page-node-id="mTeHewfXPIbvhitt135RQE">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="QJjDO8jsKf5cf5CfAlyJaU"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="amAk7AqAne5B1ZCFGxUyyA"/></svg>
+            </span>
+            <span class="cover-label" data-page-node-id="KUyyN8KLJozNTZmMsTcB3k">Project cover — 1600 × 1200</span>
+          </div>
+          <div class="card-body" data-page-node-id="U4o7oavMSv6UGWtr6YeHen">
+            <div class="card-top" data-page-node-id="VqluZGNfz9kjEmADdThVFF">
+              <h3 class="card-title" data-page-node-id="Bce8qHToB4SiYvNrPHB5pX">Ledger onboarding</h3>
+              <span class="card-year" data-page-node-id="Too1P9ODA2kYF5NvxQEB6s">2025</span>
+            </div>
+            <p class="card-desc" data-page-node-id="b4a7jhRUY5kEk2d5EJtyF3">
+              Rebuilt a 14-step compliance flow into five. Drop-off down
+              <b data-page-node-id="sMXv3s1NOOKlnU3aIF1qEV">38%</b> in the first quarter post-launch.
+            </p>
+            <div class="tags" data-page-node-id="K59ztTVBJFKwnZujVseg3j"><span class="tag" data-page-node-id="gAxirPASG7BXLh1SgedVSf">UX research</span><span class="tag" data-page-node-id="pYE0XmxBkluwt7cyl30Ldo">Fintech</span><span class="tag" data-page-node-id="K3LobsaphNcDn4DzEUONzf">Flows</span></div>
+          </div>
+        </a>
+
+        <a class="card" href="case-study.html" data-reveal data-tilt style="--d:110ms" data-page-node-id="TeGJaq5ZbBH0v7g1U9Pjbr">
+          <div class="cover" data-page-node-id="3sTAIe9daY6JU8GLBFaomS">
+            <div class="cover-art art-4" data-page-node-id="W6IMkx39FgE2ae7EERQxEJ"></div>
+            <span class="cover-badge" data-page-node-id="QwOoVjLcrFUe0lAFWSTBo6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="YQ2st2FH4caG3VykSooAGh"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="YVmjzIPMiiJmGNlfomER9A"/></svg>
+            </span>
+            <span class="cover-label" data-page-node-id="paMPY7dwuTo8vyLEKXvTbo">Project cover — 1600 × 1200</span>
+          </div>
+          <div class="card-body" data-page-node-id="cdAnvyFtDUAHXIsmLKxQ1I">
+            <div class="card-top" data-page-node-id="M5wmyUEtB6ch4lg8piTWED">
+              <h3 class="card-title" data-page-node-id="BzlQKDOdjlrcNtY7041BS3">Signal — anomaly alerts</h3>
+              <span class="card-year" data-page-node-id="VPPjT7VIMI8myGOmjtEHx1">2024</span>
+            </div>
+            <p class="card-desc" data-page-node-id="hpDNa1ouEHnSx4ap6emhps">
+              Alerting that respects attention: fewer pings, higher signal.
+              False-positive rate down <b data-page-node-id="p3VDEFXLr8vpGohmAkR2yc">61%</b>.
+            </p>
+            <div class="tags" data-page-node-id="qLCGDUO9U4HBXd8ml2ceQm"><span class="tag" data-page-node-id="1aNg3EiC8uQfM1FGiCGFVa">Interaction</span><span class="tag" data-page-node-id="Dvq15CBTW785nRJBaCwlNK">Research</span><span class="tag" data-page-node-id="1BjgcI2GBrJ8uDDnkMmTFx">B2B</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="sec" id="about" data-page-node-id="8ItQrXkzk6wJYXNmn50lsa">
+    <div class="wrap" data-page-node-id="Xiu8J9zqeWiHAHcPjhjIex">
+      <div class="sec-head" data-page-node-id="jt9lUFBuHnBtjZs6TbAdGX">
+        <div data-reveal data-page-node-id="9Z8HvUXMe8NxkLbvB7ZH6i">
+          <span class="eyebrow" data-page-node-id="7DN5hW00Ekco4WoPgZnfgm">02 — About</span>
+          <h2 class="h1" data-page-node-id="shnQkMqVi1GELoefUSYKuO">How I work.</h2>
+        </div>
+      </div>
+
+      <div class="about-grid" data-page-node-id="GNmHTNUYehzPwPRJLwbfDD">
+        <div data-reveal data-page-node-id="2Z6NHCbpK64Kd9fNdmrl88">
+          <div class="about-portrait" data-page-node-id="fyzromcFRu1GmXtK3GpbRo"><span data-page-node-id="YWMiWwYUxaXaIGnaC90olz">Portrait</span></div>
+        </div>
+
+        <div data-reveal style="--d:120ms" data-page-node-id="GyX4vH9BWu6CYioIUFlOO6">
+          <div class="about-copy" data-page-node-id="wWLy6EmRBdP2HNttk2lO0S">
+            <p data-page-node-id="JNg5jJQtldK3GXYX0exbVb">
+              I'm a product designer based in Bengaluru. I got into design through
+              engineering — which means I tend to <strong data-page-node-id="1Agtfq6tHziOxXVjZvz4uO">start with the data model
+              and the edge cases</strong>, then work outward to the screen.
+            </p>
+            <p data-page-node-id="ykhUeoCv8UCQULfAxYDGJ9">
+              Most of my work sits in the <em data-page-node-id="YPzeYl7lvuWXgqwAl4OeGO">uncomfortable middle</em>: products with
+              too many features, used by experts, sold to people who aren't. My job is
+              usually less about adding and more about deciding what earns a place on
+              the screen.
+            </p>
+            <p data-page-node-id="xwcRuFn424YRh2PgdqH0nD">
+              Outside of that: long-distance running, bad film photography, and an
+              unreasonable interest in transit maps.
+            </p>
+          </div>
+
+          <div class="principles" data-page-node-id="nVDHtbSVC0xfMtGRUJIqfD">
+            <div class="principle" data-page-node-id="y5QYNjYYAkdY8ESLyccPLi">
+              <span class="principle-num" data-page-node-id="YPKFXXibfAVjBO4F4OVH0t">01</span>
+              <div data-page-node-id="cI69xzN1ZLmgF3ayrqNHU2">
+                <h3 data-page-node-id="L18OVEEvlBVL19pyPQN1cc">Start with the constraint, not the canvas</h3>
+                <p data-page-node-id="PrhbtixmiiEXxr9oHQVbcg">Every strong solution I've shipped came from a hard limit — legacy data, a two-week window, one engineer.</p>
+              </div>
+            </div>
+            <div class="principle" data-page-node-id="HIjtCNO4GIlGYrB81zKYFn">
+              <span class="principle-num" data-page-node-id="pBRh31ujutZLtAZ2DiinHa">02</span>
+              <div data-page-node-id="RQ0kgLYKOctiQ4g6AqhhII">
+                <h3 data-page-node-id="Ab99eqan4yZ877InJV4mC9">Prototype ugly, decide early</h3>
+                <p data-page-node-id="ijVbACEiP1Dyya86gT2U54">Low fidelity in hour two beats high fidelity in week two. I'd rather be wrong quickly.</p>
+              </div>
+            </div>
+            <div class="principle" data-page-node-id="KhqYVJb8pcO5NVutSXB13k">
+              <span class="principle-num" data-page-node-id="8p1ECVFoxHsfBQsJMyY8VI">03</span>
+              <div data-page-node-id="0DX8LSWuPEwpEsnyU7qb2i">
+                <h3 data-page-node-id="PEAjIxaA9j7DToAlXH3s0i">Design the system, ship the screen</h3>
+                <p data-page-node-id="dBiIZ6CfjcmVkaUKLrunMT">Components and tokens are how a design survives after the handoff.</p>
+              </div>
+            </div>
+            <div class="principle" data-page-node-id="0Gn6r6hcilBpaLgu8Qp892">
+              <span class="principle-num" data-page-node-id="CEZtF2SiFoHDjmY3UcoaIS">04</span>
+              <div data-page-node-id="WE0ZvrRQNsaZN07PN4WZD7">
+                <h3 data-page-node-id="u083gJYRRS4D0aX65V7mDH">Measure the outcome</h3>
+                <p data-page-node-id="L5EgtBA1idXy9VPChcjvD8">If we can't say what changed for the user, we decorated.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ EXPERIENCE ============================ -->
+  <section class="sec" id="experience" data-page-node-id="6abwKbObrP0PAT3CoNSIpH">
+    <div class="wrap" data-page-node-id="IRUt0ZmIJwFQhLIjsWGK3H">
+      <div class="sec-head" data-page-node-id="EruLh9YR9ZMpFesMJOCig0">
+        <div data-reveal data-page-node-id="L9BJGwGbCVC90j9TepCwoa">
+          <span class="eyebrow" data-page-node-id="vMKnseTZDsdwAJeZ5Oviw0">03 — Experience</span>
+          <h2 class="h1" data-page-node-id="1etnyj7fDtm63QVlQG5z28">Six years,<br data-page-node-id="k4yZnfAJ2safMmu2GLlXhW"/>four teams.</h2>
+        </div>
+        <a class="btn btn-ghost" href="#" data-reveal style="--d:90ms" data-magnetic data-page-node-id="zPYwjnj9HsdPMY2V5YFK7K">
+          Download résumé <span style="display:inline-block" data-page-node-id="JFgF3Ng0BsCyTMiMZqkFT7">↓</span>
+        </a>
+      </div>
+
+      <div class="timeline" data-page-node-id="voVfa4oGIEuHOufsMenPKt">
+        <div class="role" data-reveal data-page-node-id="VBJSrrTH7YSLaowpjpzfoQ">
+          <span class="role-year" data-page-node-id="y1t06Qr8prPbMajo3JCde3">2024 — Now</span>
+          <div data-page-node-id="07hZTUSawuSAVXcTY78Z3A">
+            <h3 class="role-title" data-page-node-id="I16EMLSE9fQ2YQKhRy8Yfi">Senior Product Designer</h3>
+            <p class="role-co" data-page-node-id="kKltKczFPztNwSdfEHvHEP">— Fintech SaaS</p>
+            <p class="role-desc" data-page-node-id="yfzbqyle0gIgHkHFR37Q9Q">
+              Owning the data-exploration surface end to end. Built the query builder,
+              led the design system migration, and set up the research cadence the team
+              still runs.
+            </p>
+          </div>
+          <span class="role-loc" data-page-node-id="51EDLMy4i7ZnZILfcQ2qxo">Bengaluru</span>
+        </div>
+
+        <div class="role" data-reveal style="--d:70ms" data-page-node-id="hKJ27A4B1U0xkwX8tS1V4X">
+          <span class="role-year" data-page-node-id="vk1avkrxiGxFMcHcawWJav">2022 — 2024</span>
+          <div data-page-node-id="kgg5UPDI68sMaIbIfM3bkg">
+            <h3 class="role-title" data-page-node-id="8i7bdjNsaEJzBH8PoJmSjK">Product Designer</h3>
+            <p class="role-co" data-page-node-id="3urb1AhOJ4o6w7UFhXC4sM">— Logistics platform</p>
+            <p class="role-desc" data-page-node-id="ZhEHgRSMrDJLxOsyF9amvf">
+              Designed dispatcher tooling used across 200+ warehouses. Rebuilt alerting,
+              cut operator training time from three days to one.
+            </p>
+          </div>
+          <span class="role-loc" data-page-node-id="ncvx3mGialZlH0xY4MoGlE">Remote</span>
+        </div>
+
+        <div class="role" data-reveal style="--d:140ms" data-page-node-id="Rk6Y1AerKFwgShKKA9r4RO">
+          <span class="role-year" data-page-node-id="8fTAmoTepajVlWYA2ELYRi">2021 — 2022</span>
+          <div data-page-node-id="zAmsivGYLEIz5tnUzQ24lU">
+            <h3 class="role-title" data-page-node-id="9pJPCHbxlqwTuxCM4I6ejS">UX Designer</h3>
+            <p class="role-co" data-page-node-id="Je9Q79zaBVFqQonnvCKxsn">— Early-stage startup</p>
+            <p class="role-desc" data-page-node-id="BUPZaZjOTEq3XYfPhR3EKz">
+              First designer. Took the product from a rough internal tool to a public
+              beta, defining the visual language along the way.
+            </p>
+          </div>
+          <span class="role-loc" data-page-node-id="TIyKg1bDyvrqflyX0yZzZk">Hyderabad</span>
+        </div>
+
+        <div class="role" data-reveal style="--d:210ms" data-page-node-id="2XZ4kJbolLFsIWv0GXAAFQ">
+          <span class="role-year" data-page-node-id="LVb8veTOQyy555MvKIAizS">2020 — 2021</span>
+          <div data-page-node-id="EdA6BS58nCQBl9A4yqgsWs">
+            <h3 class="role-title" data-page-node-id="jaG87aF17FGFCf7GeG08yr">Front-end Developer</h3>
+            <p class="role-co" data-page-node-id="J3HMUENLQhie09XqJetze6">— Agency</p>
+            <p class="role-desc" data-page-node-id="KswmiazWFOgI8pi84742qt">
+              Where the engineering bias comes from. Shipped React for clients, learned
+              to argue with designers from the other side of the table.
+            </p>
+          </div>
+          <span class="role-loc" data-page-node-id="pkVUB300LqJHLaBaW1Hu4u">Hyderabad</span>
+        </div>
+      </div>
+
+      <div style="margin-top:52px" data-reveal data-page-node-id="W9kogLRvAjH1M6vYZvMmQT">
+        <span class="eyebrow" style="margin-bottom:22px" data-page-node-id="wn09RqOFhxnoyJHbx5s3Hb">Toolkit</span>
+        <div class="toolkit" data-page-node-id="uZSYAiipmcI8vzeD1DFySf">
+          <span class="tool" data-page-node-id="lc6ub66b9lgVnMJ3Y8XlKs">Design systems</span>
+          <span class="tool" data-page-node-id="RBsNXNZhiiam9LvvR5yUoP">Figma</span>
+          <span class="tool" data-page-node-id="rtdJzdijKsAiHRLr6hrHAE">Framer</span>
+          <span class="tool" data-page-node-id="7TxiCr535Cqzc9swSbjhA8">Prototyping</span>
+          <span class="tool" data-page-node-id="LOQYBDUNDZD875dJq34sQL">User interviews</span>
+          <span class="tool" data-page-node-id="uGnkKn97VdIzLMC8hhGt0o">Usability testing</span>
+          <span class="tool" data-page-node-id="A86Am8fQ9MICvDmo9xUMjp">Data visualisation</span>
+          <span class="tool" data-page-node-id="MafuYqmhEpPVPUBKiu8Bh3">Accessibility (WCAG 2.2)</span>
+          <span class="tool" data-page-node-id="ha0SkT8FuQm3R0WfNcOPKt">React / CSS</span>
+          <span class="tool" data-page-node-id="xCsjHYUVv1D45TcApS0MWZ">Design ops</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="sec" id="contact" data-page-node-id="BqOOgcoQWFoRfPEj7p1uAw">
+    <div class="wrap" data-page-node-id="9gDq4ueYMSs4knVdEE5Mnc">
+      <div class="contact" data-reveal data-page-node-id="OhzcPKkvulJ5Wm7w4DRzqq">
+        <span class="eyebrow" style="justify-content:center; display:inline-flex" data-page-node-id="3Y7nQTONjKZtrfRQD40rwV">04 — Contact</span>
+        <h2 class="h1" style="margin:18px 0" data-page-node-id="PMpeOirmhkiPWy8KwXrDms">Got something<br data-page-node-id="D1NTcsu0MxeniloT1hLJHk"/>worth untangling?</h2>
+        <p data-page-node-id="fxZm3FMAedN9YzpOkZI0qD">I'm taking on new work for Q4. Tell me the problem, not the deliverable.</p>
+
+        <a class="email" href="mailto:hello@ayodhya.design" id="emailLink" data-page-node-id="GohQj1Pfl7eciBCG2qFfM1">
+          hello@ayodhya.design
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="TTI9EI699Eqn7YGRc7Imqt"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="UdWBHFTnAtEBjxWAo23LLE"/></svg>
+        </a>
+
+        <div class="socials" data-page-node-id="tHU7CIG8nuTCAoLEjvnqoB">
+          <a class="social" href="#" data-page-node-id="7LU9YH3YmmnAq6OSEGSQBS">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="oINtH3oIXsh6pHjxcx2inN"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="WAoW02tzKzSisE0Ed9RvjN"/></svg></a>
+          <a class="social" href="#" data-page-node-id="AmNrHflx2X8lT8PWXnhFCb">Dribbble <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="4HqO0Qy1HDVaMw2AkScCvp"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="cmIFP4nanIXmelDyH5Ofiv"/></svg></a>
+          <a class="social" href="#" data-page-node-id="TuUj9zw37bSUFjnQ4PPdNz">Read.cv <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="VMqbqSro4ir1cOFvP3aGzP"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="xuqbUJ5odPH19zJtI69SxB"/></svg></a>
+          <a class="social" href="#" data-page-node-id="wXNE9YLhoIL0cZexAwwXaq">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="GGbBp1Q1zqgBj8goLH5mhE"><path d="M7 17 17 7M17 7H8M17 7v9" data-page-node-id="Tngn5rPqBCSrDNV7N0wxC0"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer data-page-node-id="cwieAST4SL2wZY6yZZvcWU">
+  <div class="wrap" data-page-node-id="1UbdgtOxZbxloMXxokNCXB">
+    <div class="footer-inner" data-page-node-id="sxBERB40i02Htp1F66EC1v">
+      <span data-page-node-id="21DThdGhwDv8ZRI6mWQzHg">© 2026 Ayodhya Ram Mohanthy</span>
+      <span style="display:flex; gap:20px; align-items:center; flex-wrap:wrap" data-page-node-id="CQBre3jhIzVHLFKGLixDAJ">
+        <span data-page-node-id="B8maJE0KqN8L7Gd1CxStTe">Built in Framer</span>
+        <button class="to-top" id="toTop" data-page-node-id="kFudEPgnXEFo1jmC83qUfo">
+          Back to top
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="Ev2igdeqfq4e0r0qR1n1jH"><path d="M12 19V5M5 12l7-7 7 7" data-page-node-id="lIyj0GcbPGZOrEFYLCScVu"/></svg>
+        </button>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- theme (day / warm dusk) ---------- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dusk' || saved === 'day') root.setAttribute('data-theme', saved);
+
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dusk' ? 'day' : 'dusk';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* ---------- nav shadow on scroll ---------- */
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ---------- mobile menu ---------- */
+  var burger = document.getElementById('burger');
+  var sheet = document.getElementById('sheet');
+  function setMenu(open) {
+    sheet.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function () {
+    setMenu(!sheet.classList.contains('open'));
+  });
+  sheet.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setMenu(false);
+  });
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  /* ---------- scroll reveal ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- active nav link ---------- */
+  var sections = ['work', 'about', 'experience', 'contact']
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  if ('IntersectionObserver' in window && sections.length) {
+    var navIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { navIO.observe(s); });
+  }
+
+  /* ---------- soft cursor glow ---------- */
+  var cursor = document.getElementById('cursor');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (cursor && fine && !reduce) {
+    var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    var tx = cx, ty = cy;
+    window.addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+    }, { passive: true });
+    (function loop() {
+      cx += (tx - cx) * 0.085;
+      cy += (ty - cy) * 0.085;
+      cursor.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  if (fine && !reduce) {
+    document.querySelectorAll('[data-magnetic]').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + mx * 0.18 + 'px,' + my * 0.28 + 'px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- subtle card tilt ---------- */
+  if (fine && !reduce) {
+    document.querySelectorAll('[data-tilt]').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform =
+          'perspective(1100px) rotateX(' + (-py * 3.2) + 'deg) rotateY(' + (px * 3.6) + 'deg) translateY(-6px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- copy email on click ---------- */
+  var emailLink = document.getElementById('emailLink');
+  if (emailLink && navigator.clipboard) {
+    var original = emailLink.firstChild.nodeValue;
+    emailLink.addEventListener('click', function () {
+      navigator.clipboard.writeText('hello@ayodhya.design').then(function () {
+        emailLink.firstChild.nodeValue = 'Copied to clipboard!';
+        setTimeout(function () { emailLink.firstChild.nodeValue = original; }, 1600);
+      }).catch(function () {});
+    });
+  }
+
+  /* ---------- back to top ---------- */
+  document.getElementById('toTop').addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>

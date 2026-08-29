@@ -1,0 +1,11 @@
+# Build / pipeline sources — not part of the deployed site.
+# A local pipeline (Framer sync / build script) maintains these.
+_build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

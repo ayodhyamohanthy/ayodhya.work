@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day" data-page-node-id="H3qbDcELHA6Y0UgvKBFpze">
+<head data-page-node-id="qdiDr00kQuAjqzWzJDX7Ex">
+<meta charset="UTF-8" data-page-node-id="z1TxDmRCZkrTd2ao3xvMdr" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="2p3JodzUiwrnckIgSwGta9" />
+<title>Atlas — Query builder · Ayodhya Ram Mohanthy</title>
+<meta name="description" content="Case study: making SQL approachable for analysts who never learned SQL." data-page-node-id="D1vVglH0Rrs8YLJnv8CRVW" />
+
+<link rel="canonical" href="https://ayodhya.work/case-study.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="assets/manifest.webmanifest" />
+<meta name="theme-color" content="#FDF7F1" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#241C16" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Ayodhya Ram Mohanthy" />
+<meta property="og:title" content="Atlas — Query builder · Case study" />
+<meta property="og:description" content="Making SQL approachable for analysts who never learned SQL. 3× task completion in usability testing." />
+<meta property="og:url" content="https://ayodhya.work/case-study.html" />
+<meta property="og:image" content="https://ayodhya.work/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Atlas — Query builder · Case study" />
+<meta name="twitter:description" content="Making SQL approachable for analysts who never learned SQL." />
+<meta name="twitter:image" content="https://ayodhya.work/assets/og-image.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="wIR1EgjKCZORw0NbXUHm4J" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="q12R1sCFDN6vBcXpXGNT2s" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="zhcZIEpyVrGYU6w3FzKThd" />
+
+<style>
+/* ============================================================
+   Same design tokens as index.html — keep them in sync.
+   ============================================================ */
+:root{
+  --cream:      #FDF7F1;
+  --cream-2:    #F8EDE2;
+  --blush:      #F6E3DA;
+  --surface:    #FFFFFF;
+  --surface-2:  #FFFBF7;
+
+  --ink:        #33291F;
+  --ink-soft:   #7A6857;
+  --ink-faint:  #A89687;
+
+  --peach:      #E99568;
+  --apricot:    #F7C08A;
+  --rose:       #E49DA4;
+  --sage:       #A9C4A2;
+  --lilac:      #C0AEDA;
+  --butter:     #F2D79B;
+
+  --line:       rgba(51,41,31,.10);
+  --line-2:     rgba(51,41,31,.16);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --wrap: 1120px;
+  --pad: clamp(20px, 5vw, 48px);
+  --r-sm: 14px;
+  --r:    22px;
+  --r-lg: 34px;
+  --r-xl: 46px;
+
+  --shadow-sm: 0 2px 8px rgba(90,60,35,.05), 0 10px 30px -12px rgba(90,60,35,.10);
+  --shadow:    0 4px 14px rgba(90,60,35,.06), 0 24px 60px -20px rgba(90,60,35,.18);
+  --shadow-lg: 0 8px 24px rgba(90,60,35,.08), 0 48px 90px -30px rgba(90,60,35,.24);
+
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dusk"]{
+  --cream:#241C16; --cream-2:#2C231B; --blush:#3A2C23; --surface:#302619; --surface-2:#362B1F;
+  --ink:#F6EDE3; --ink-soft:#C4AF9E; --ink-faint:#93806F;
+  --peach:#F0A97F; --apricot:#F9CB9C; --rose:#EEAEB4; --sage:#B6CFAD; --lilac:#CDBCE4; --butter:#F5DFA9;
+  --line:rgba(246,237,227,.12); --line-2:rgba(246,237,227,.20);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.20),0 10px 30px -12px rgba(0,0,0,.40);
+  --shadow:0 4px 14px rgba(0,0,0,.24),0 24px 60px -20px rgba(0,0,0,.50);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.28),0 48px 90px -30px rgba(0,0,0,.60);
+}
+
+*,*::before,*::after{ box-sizing:border-box }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--font-sans); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background .6s var(--ease-soft), color .6s var(--ease-soft);
+}
+.ambient{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden }
+.blob{ position:absolute; border-radius:50%; filter:blur(80px); opacity:.5 }
+.blob.b1{ width:620px; height:620px; top:-240px; right:-180px;
+  background:radial-gradient(circle at 40% 40%, var(--apricot), transparent 68%);
+  animation:d1 27s var(--ease-soft) infinite alternate }
+.blob.b2{ width:540px; height:540px; top:46%; left:-220px;
+  background:radial-gradient(circle at 50% 50%, var(--lilac), transparent 68%);
+  animation:d2 33s var(--ease-soft) infinite alternate }
+@keyframes d1{ from{transform:translate(0,0) scale(1)} to{transform:translate(-70px,80px) scale(1.12)} }
+@keyframes d2{ from{transform:translate(0,0) scale(1.05)} to{transform:translate(80px,-70px) scale(.92)} }
+.grain{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.3; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+[data-theme="dusk"] .grain{ mix-blend-mode:overlay; opacity:.18 }
+a{ color:inherit; text-decoration:none }
+::selection{ background:var(--peach); color:#fff }
+:focus-visible{ outline:2.5px solid var(--peach); outline-offset:3px; border-radius:6px }
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 var(--pad); position:relative; z-index:3 }
+
+.display{ font-family:var(--font-display); font-weight:400;
+  font-size:clamp(2.4rem,6.6vw,5.2rem); line-height:1; letter-spacing:-.03em; margin:0;
+  font-variation-settings:'SOFT' 60,'WONK' 1 }
+.h1{ font-family:var(--font-display); font-weight:400;
+  font-size:clamp(1.9rem,4.4vw,3.1rem); line-height:1.05; letter-spacing:-.025em; margin:0;
+  font-variation-settings:'SOFT' 60,'WONK' 1 }
+.h2{ font-family:var(--font-display); font-weight:500;
+  font-size:clamp(1.25rem,2.2vw,1.7rem); line-height:1.2; letter-spacing:-.015em; margin:0 }
+.lead{ font-size:clamp(1.02rem,1.4vw,1.18rem); color:var(--ink-soft); line-height:1.68 }
+.body{ color:var(--ink-soft); line-height:1.8 }
+.eyebrow{ font-size:11px; font-weight:600; letter-spacing:.19em; text-transform:uppercase;
+  color:var(--ink-faint); display:inline-flex; align-items:center; gap:9px }
+.eyebrow::before{ content:""; width:22px; height:1.5px; border-radius:2px; background:var(--peach); opacity:.8 }
+
+/* ---------- nav ---------- */
+.nav-shell{ position:fixed; top:0; left:0; right:0; z-index:60; padding:16px var(--pad) 0; pointer-events:none }
+.nav{
+  pointer-events:auto; max-width:var(--wrap); margin:0 auto;
+  display:flex; align-items:center; gap:20px; padding:11px 11px 11px 22px;
+  border-radius:100px;
+  background:color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter:blur(20px) saturate(150%); -webkit-backdrop-filter:blur(20px) saturate(150%);
+  border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:box-shadow .4s var(--ease);
+}
+.nav.scrolled{ box-shadow:var(--shadow) }
+.brand{ display:flex; align-items:center; gap:11px; font-weight:600; margin-right:auto; font-size:14.5px }
+.brand-mark{ width:32px; height:32px; border-radius:11px; display:grid; place-items:center;
+  font-family:var(--font-display); font-weight:600; font-size:16px; color:#fff;
+  background:linear-gradient(140deg,var(--peach),var(--rose)); box-shadow:0 4px 12px rgba(233,149,104,.35); flex:none }
+.brand span.sub{ color:var(--ink-faint); font-weight:400 }
+.btn{ display:inline-flex; align-items:center; gap:9px; padding:11px 20px; border-radius:100px;
+  font-size:14px; font-weight:600; border:1px solid transparent; cursor:pointer;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s var(--ease) }
+.btn-primary{ background:var(--ink); color:var(--cream); box-shadow:0 6px 18px -6px rgba(51,41,31,.45) }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(51,41,31,.5) }
+.btn-ghost{ background:var(--surface); color:var(--ink); border-color:var(--line-2); box-shadow:var(--shadow-sm) }
+.btn-ghost:hover{ transform:translateY(-2px) }
+.icon-btn{ width:38px; height:38px; border-radius:50%; display:grid; place-items:center; cursor:pointer;
+  background:var(--cream-2); border:1px solid var(--line); color:var(--ink-soft);
+  transition:transform .35s var(--ease), color .3s var(--ease) }
+.icon-btn:hover{ transform:rotate(-12deg) scale(1.08); color:var(--ink) }
+.icon-btn svg{ width:17px; height:17px }
+
+/* ---------- hero ---------- */
+.cs-hero{ padding:clamp(118px,16vh,168px) 0 clamp(40px,6vh,64px) }
+.back{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:500;
+  color:var(--ink-faint); margin-bottom:26px; transition:color .3s var(--ease), gap .3s var(--ease) }
+.back:hover{ color:var(--ink); gap:12px }
+.cs-title{ margin:18px 0 22px }
+.cs-sub{ max-width:56ch; margin-bottom:38px }
+
+.meta{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; border-radius:var(--r);
+  overflow:hidden; background:var(--line); box-shadow:var(--shadow-sm) }
+.meta-item{ background:var(--surface); padding:20px 22px }
+.meta-k{ font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-faint); margin-bottom:7px }
+.meta-v{ font-size:15px; font-weight:500; letter-spacing:-.01em }
+
+/* ---------- cover ---------- */
+.cover{ margin:clamp(40px,6vw,64px) 0; border-radius:var(--r-xl); overflow:hidden;
+  aspect-ratio:16/9; position:relative; display:grid; place-items:center;
+  box-shadow:var(--shadow-lg) }
+.cover-art{ position:absolute; inset:0; background:
+  radial-gradient(75% 65% at 22% 20%, var(--apricot), transparent 62%),
+  radial-gradient(65% 70% at 82% 78%, var(--peach), transparent 60%),
+  linear-gradient(150deg,#FBE7D6,#F3D3C2) }
+.cover span{ position:relative; z-index:2; font-size:11px; font-weight:600; letter-spacing:.16em;
+  text-transform:uppercase; color:rgba(255,255,255,.9); padding:8px 15px; border-radius:100px;
+  background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px) }
+
+/* ---------- content blocks ---------- */
+.block{ padding:clamp(44px,7vh,84px) 0 }
+.block-head{ margin-bottom:30px }
+.block-head .eyebrow{ margin-bottom:14px }
+.prose{ max-width:62ch }
+.prose p{ margin:0 0 20px; font-size:clamp(1rem,1.25vw,1.08rem); color:var(--ink-soft); line-height:1.8 }
+.prose p:last-child{ margin-bottom:0 }
+.prose strong{ color:var(--ink); font-weight:600 }
+.prose em{ font-family:var(--font-display); font-style:italic;
+  background:linear-gradient(100deg,var(--peach),var(--rose));
+  -webkit-background-clip:text; background-clip:text; color:transparent }
+
+.two{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(22px,3.4vw,44px); align-items:start }
+
+.panel{ border-radius:var(--r-lg); padding:clamp(26px,3.6vw,42px);
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow-sm) }
+.panel h3{ margin:0 0 14px; font-family:var(--font-display); font-weight:500;
+  font-size:1.2rem; letter-spacing:-.015em }
+.panel p{ margin:0; font-size:14.8px; color:var(--ink-soft); line-height:1.7 }
+.panel.tinted{ background:
+  radial-gradient(90% 80% at 15% 10%, var(--apricot), transparent 60%),
+  radial-gradient(80% 80% at 88% 90%, var(--rose), transparent 60%), var(--blush) }
+
+/* numbered findings */
+.findings{ display:grid; gap:2px; border-radius:var(--r); overflow:hidden; background:var(--line) }
+.finding{ background:var(--surface); padding:22px 24px; display:grid;
+  grid-template-columns:auto 1fr; gap:18px; align-items:start; transition:background .35s var(--ease) }
+.finding:hover{ background:var(--surface-2) }
+.finding b{ font-family:var(--font-display); font-size:15px; color:var(--peach); padding-top:2px }
+.finding div h4{ margin:0 0 5px; font-size:15.5px; font-weight:600; letter-spacing:-.01em }
+.finding div p{ margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.65 }
+
+/* outcomes */
+.outcomes{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px) }
+.outcome{ border-radius:var(--r); padding:28px 26px; text-align:center;
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease) }
+.outcome:hover{ transform:translateY(-5px); box-shadow:var(--shadow) }
+.outcome-num{ font-family:var(--font-display); font-size:clamp(2.1rem,4vw,3rem);
+  font-weight:400; letter-spacing:-.03em; line-height:1; margin-bottom:10px;
+  background:linear-gradient(110deg,var(--peach),var(--rose));
+  -webkit-background-clip:text; background-clip:text; color:transparent }
+.outcome-l{ font-size:13.5px; color:var(--ink-soft); line-height:1.55 }
+
+/* pull quote */
+.quote{ margin:clamp(40px,6vw,60px) 0; padding:clamp(32px,5vw,54px);
+  border-radius:var(--r-xl); text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(80% 90% at 20% 12%, var(--butter), transparent 58%),
+    radial-gradient(75% 90% at 84% 88%, var(--sage), transparent 58%),
+    linear-gradient(160deg, var(--blush), var(--lilac));
+  box-shadow:var(--shadow) }
+.quote p{ font-family:var(--font-display); font-size:clamp(1.25rem,2.7vw,1.95rem);
+  line-height:1.34; letter-spacing:-.02em; margin:0 0 16px;
+  font-variation-settings:'SOFT' 60 }
+.quote cite{ font-style:normal; font-size:13px; color:var(--ink-soft); font-weight:500 }
+
+/* image placeholders */
+.shots{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,2vw,22px) }
+.shot{ border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/3; position:relative;
+  display:grid; place-items:center; box-shadow:var(--shadow-sm) }
+.shot span{ position:relative; z-index:2; font-size:11px; font-weight:600; letter-spacing:.16em;
+  text-transform:uppercase; color:rgba(255,255,255,.9); padding:7px 14px; border-radius:100px;
+  background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px) }
+.s1{ background:radial-gradient(70% 70% at 78% 24%,var(--lilac),transparent 62%),
+  radial-gradient(60% 60% at 20% 80%,var(--rose),transparent 60%),linear-gradient(150deg,#F0E4F2,#E4D6EE) }
+.s2{ background:radial-gradient(70% 65% at 30% 76%,var(--sage),transparent 62%),
+  radial-gradient(65% 60% at 76% 22%,var(--butter),transparent 60%),linear-gradient(150deg,#E7EDDF,#DCE6D6) }
+.s3{ background:radial-gradient(68% 68% at 72% 72%,var(--rose),transparent 62%),
+  radial-gradient(62% 62% at 24% 26%,var(--apricot),transparent 60%),linear-gradient(150deg,#F8E0DC,#F0D2D4) }
+.s4{ background:radial-gradient(70% 70% at 24% 26%,var(--apricot),transparent 62%),
+  radial-gradient(65% 65% at 80% 80%,var(--lilac),transparent 60%),linear-gradient(150deg,#FBEADB,#EEDCEC) }
+
+/* next project */
+.next{ border-radius:var(--r-xl); overflow:hidden; position:relative;
+  padding:clamp(40px,6vw,68px); text-align:center;
+  background:var(--ink); color:var(--cream); box-shadow:var(--shadow-lg) }
+.next .eyebrow{ color:rgba(253,247,241,.55) }
+.next .eyebrow::before{ background:var(--peach) }
+.next h2{ font-family:var(--font-display); font-size:clamp(1.9rem,4.6vw,3.2rem);
+  font-weight:400; letter-spacing:-.03em; margin:16px 0 26px; line-height:1.05 }
+.next .btn{ background:var(--cream); color:var(--ink) }
+.next .btn:hover{ transform:translateY(-2px) }
+
+footer{ padding:44px 0 54px; position:relative }
+.footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:20px;
+  flex-wrap:wrap; padding-top:28px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink-faint) }
+
+[data-reveal]{ opacity:0; transform:translateY(22px) }
+[data-reveal].in{ opacity:1; transform:none;
+  transition:opacity .85s var(--ease), transform .85s var(--ease); transition-delay:var(--d,0ms) }
+
+@media (max-width:900px){
+  .meta{ grid-template-columns:1fr 1fr }
+  .two{ grid-template-columns:1fr }
+  .outcomes{ grid-template-columns:1fr }
+  .shots{ grid-template-columns:1fr }
+  .brand span.sub{ display:none }
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important }
+  [data-reveal]{ opacity:1; transform:none }
+}
+</style>
+</head>
+
+<body data-page-node-id="CMqzRvW2bPzZCuuqBKIkKw">
+<div class="ambient" aria-hidden="true" data-page-node-id="zElSWKJ90zLllZLL6bXZgE"><div class="blob b1" data-page-node-id="UfDULi2GsoJ8lCMRR3JD1D"></div><div class="blob b2" data-page-node-id="MNHw0P6HbHRHfanykAzdyw"></div></div>
+<div class="grain" aria-hidden="true" data-page-node-id="fxFlJo1r5fP7HD8TfXQJyk"></div>
+
+<div class="nav-shell" data-page-node-id="bDnAoU7eXwWkHbwsauKXVT">
+  <nav class="nav" id="nav" data-page-node-id="q6W0esGermFdL4a5Mwuc2i">
+    <a class="brand" href="index.html" data-page-node-id="zPOyHu8hTmWALl2KM4oXis">
+      <span class="brand-mark" data-page-node-id="fHinHlyxCcYdPrJtvCtZR5">A</span>
+      Ayodhya <span class="sub" data-page-node-id="oG1mC2vMOF4ALWxRchsTcf">Ram Mohanthy</span>
+    </a>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle warm dusk mode" title="Toggle warm dusk mode" data-page-node-id="BIj7nU6smcWMKHvhRQu0U1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="N2xnXROTFLhVdRdYHLEt3O"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" data-page-node-id="qHpAS65tCkPJZoM4CvQDqd"/></svg>
+    </button>
+    <a class="btn btn-ghost" href="index.html" data-page-node-id="M5On6PKnSOxI4yJrSLM6Ig">← All work</a>
+    <a class="btn btn-primary" href="index.html#contact" data-page-node-id="Jo8cZHBlCCl2k2zLPXl2tE">Let's talk ↗</a>
+  </nav>
+</div>
+
+<main data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr">
+  <section class="cs-hero" data-page-node-id="2XxcDgm50fiJJ5xPLlUEBW">
+    <div class="wrap" data-page-node-id="m4fMItGJGGJdlYB0rK3EEF">
+      <a class="back" href="index.html" data-reveal data-page-node-id="Zs21l6HQ6RefEQDGbjm2XL">← Back to selected work</a>
+      <span class="eyebrow" data-reveal style="--d:60ms" data-page-node-id="IsR295Hl3JmZdjolCNMtBl">Case study · 2026</span>
+      <h1 class="display cs-title" data-reveal style="--d:120ms" data-page-node-id="xWSRjYhBXNjii31eEpNHuB">Atlas —<br data-page-node-id="h56YGYmS0eJD6vkeP335Li"/>Query builder</h1>
+      <p class="lead cs-sub" data-reveal style="--d:190ms" data-page-node-id="FCBsV43AftlfnpAuVpA4jZ">
+        Making SQL approachable for analysts who never learned SQL. Built for a
+        fintech data platform where the people closest to the questions were
+        furthest from the answer.
+      </p>
+
+      <div class="meta" data-reveal style="--d:260ms" data-page-node-id="M42FyVtpivcBGqOcml0rQ2">
+        <div class="meta-item" data-page-node-id="6cADdyRH5abnaHVrR8iL28"><div class="meta-k" data-page-node-id="hGS7dNyVDPqgxJBSuqT5VG">Role</div><div class="meta-v" data-page-node-id="umm6fVEy8ZrJjsp90WLfkO">Lead product designer</div></div>
+        <div class="meta-item" data-page-node-id="SPjCe9w0eGIvSSFIEJ9OUt"><div class="meta-k" data-page-node-id="rGQryOpXK49CrhKVC57nVE">Team</div><div class="meta-v" data-page-node-id="LRQxqwwcBBeDgXZ3fe4pHT">1 PM · 4 engineers</div></div>
+        <div class="meta-item" data-page-node-id="GI0DPYGbHSEepocpZXhsN5"><div class="meta-k" data-page-node-id="rjHF3RAQI2vt6fQ5kC0R0A">Timeline</div><div class="meta-v" data-page-node-id="6iduuVKORr50i8ZCU7Sa8i">5 months, 0 → 1</div></div>
+        <div class="meta-item" data-page-node-id="SsgkY1RQqEKlhDlrOa5BkB"><div class="meta-k" data-page-node-id="lkkwot1DA3nD8PUIZguy4d">Platform</div><div class="meta-v" data-page-node-id="DuNy63FywOEzmGJOF7l5Cn">Web · Data tooling</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" data-page-node-id="oBApYIbvRXFmnVciwkVOX5">
+    <div class="cover" data-reveal data-page-node-id="H3KyuDZ2oH7wknXV68LQZV">
+      <div class="cover-art" data-page-node-id="SnTzgPdCTJWTR0NaHZUoKw"></div>
+      <span data-page-node-id="6PQVQjv3nagPb4Fe2b5xGk">Hero image — 2400 × 1350</span>
+    </div>
+  </div>
+
+  <section class="block" data-page-node-id="o3TD2Yzt1I9FOfnQABJ6Ce">
+    <div class="wrap" data-page-node-id="sacoUPA6aGgUwhtUrHMmTo">
+      <div class="two" data-page-node-id="o3YsJgPZhIqCk6JSLPCzwv">
+        <div class="block-head" data-reveal data-page-node-id="dUqJZojnylcpJmX3aOV9l4">
+          <span class="eyebrow" data-page-node-id="OYlIA6aCGvnAiV8cYRqoWF">01 — The problem</span>
+          <h2 class="h1" data-page-node-id="dV7amKB5Es73HeQL17qwEx">The bottleneck<br data-page-node-id="SlO1ifHIbZWksR4KWBoTBE"/>was vocabulary.</h2>
+        </div>
+        <div class="prose" data-reveal style="--d:110ms" data-page-node-id="J93cqkHZS53GZUFAEFAX6E">
+          <p data-page-node-id="32plx5EoIo0KNq3C8yMc2c">
+            Every question the business wanted answered went through a three-person
+            data team. Analysts knew exactly what they needed; they just couldn't
+            write the query, and the queue meant <strong data-page-node-id="Zn4ooBBIfARXBvv8lNprm5">a two-day wait for a
+            five-minute answer</strong>.
+          </p>
+          <p data-page-node-id="BCYO5ug9QWPBfDmHWlcFxV">
+            We'd tried a natural-language interface before. It failed because it was
+            <em data-page-node-id="5MpJgQFcOAqyltSQ5N8tOI">confidently wrong</em> — it guessed, and people stopped trusting it.
+            The real problem wasn't syntax. It was that nobody could see what the
+            query was actually doing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-page-node-id="nzMEWv0cMvl5QAaS5Ta3QY">
+    <div class="wrap" data-page-node-id="vIVli8wMBYNoucUxFWTo4X">
+      <div class="block-head" data-reveal data-page-node-id="WQCwpHv8GjAA9Os9gnNWdo">
+        <span class="eyebrow" data-page-node-id="7r3pf2gievEUmhXVs8IN4X">02 — Research</span>
+        <h2 class="h1" data-page-node-id="X0xguEjgLQH94ftpL130Nm">What we found.</h2>
+      </div>
+      <div class="findings" data-reveal style="--d:90ms" data-page-node-id="dHJfpJypzLFTOkQhawMOhv">
+        <div class="finding" data-page-node-id="CZ0P8hqsMluWoTM9K1Sm40">
+          <b data-page-node-id="7S684PVyd7JteQM190r0WH">01</b>
+          <div data-page-node-id="HKCGjvvvuLDyPHYpUNFUwH">
+            <h4 data-page-node-id="ae3ZS7RimYXcDmeI2EAGzC">Analysts think in outcomes, not joins</h4>
+            <p data-page-node-id="0cRDwwTwSlE87bU17yaYKu">Every interview started with the business question, never the table. The interface had to begin where they began.</p>
+          </div>
+        </div>
+        <div class="finding" data-page-node-id="cA1FuCwhJBjQ3aDcyf1yoG">
+          <b data-page-node-id="ckfEse9dN5Wfi6R1ys55MG">02</b>
+          <div data-page-node-id="sEvtBj4KvCDiiehNA2lmOx">
+            <h4 data-page-node-id="rWNtDO3A8Uv9sJcQhashd4">Trust came from visibility</h4>
+            <p data-page-node-id="KO4z97P1f4xP8datxLXGN9">People forgave a wrong result they could inspect. They never forgave a right result they couldn't.</p>
+          </div>
+        </div>
+        <div class="finding" data-page-node-id="wtwo9tfdKo3wqqD7dEixq6">
+          <b data-page-node-id="ag6iMUhFOodCJlycU6uIRb">03</b>
+          <div data-page-node-id="lWosQqEAWvscm3qNgr8DFB">
+            <h4 data-page-node-id="sfuDiNYXPeHLpfn74GH2SI">Partial credit beats a blank page</h4>
+            <p data-page-node-id="02sl4hfZb9lwnF9DfAQ7hn">A query that got someone 80% of the way was still a win — if they could see and edit the last 20%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-page-node-id="ljB7hy2GTWW2G9iz5yYEUO">
+    <div class="wrap" data-page-node-id="ndMoRqh7Gv1QkjWE8Avfsa">
+      <div class="two" data-page-node-id="0g2xYnHGWOoDgUgpy4Vpc8">
+        <div class="prose" data-reveal data-page-node-id="TnFSKQBzFuMnXueLpixKsB">
+          <span class="eyebrow" style="margin-bottom:16px" data-page-node-id="G4qX54Uzd2bWLGP3BHsJSM">03 — The approach</span>
+          <h2 class="h1" style="margin-bottom:22px" data-page-node-id="4msrNF2Z21gcQhoii4e5jB">Show the query,<br data-page-node-id="wgurV8KuZQ9AnquuMJevTX"/>always.</h2>
+          <p data-page-node-id="nqW83RJfAVJ1zxLgz6uDzv">
+            The core decision: the builder never hides the SQL. Every action in the
+            visual editor writes to a live, editable query panel underneath. Drag a
+            filter, watch the WHERE clause appear.
+          </p>
+          <p data-page-node-id="aXf5FU0m2e8CU0Dtq4uxde">
+            That single rule solved trust, taught SQL passively, and gave power users
+            an escape hatch. It also meant we never had to build a second interface
+            for the people who already knew what they were doing.
+          </p>
+        </div>
+        <div data-reveal style="--d:110ms" data-page-node-id="J0nkpZOPMgaFiHrtWrhl3B">
+          <div class="panel tinted" data-page-node-id="5HYOIwFw6518ZQjiOWwqaA">
+            <h3 data-page-node-id="TXFUCvd3TFeMDGq5gZ3Ph1">The constraint that shaped it</h3>
+            <p data-page-node-id="qldjnTzrnkWZmsPCRD0YuC">
+              One backend engineer, and a query engine that couldn't be changed.
+              Everything had to be expressible in the SQL dialect we already had —
+              no new syntax, no server-side magic. The design had to live entirely
+              in how we composed what was already possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" data-page-node-id="TegeQ1dH09fPxEfe2iRxIJ">
+    <div class="shots" data-reveal data-page-node-id="UDBNnli5p7QMwINPvK3mcv">
+      <div class="shot s1" data-page-node-id="aft2cJO34vxgwu2XWGeVk8"><span data-page-node-id="HsxGpUIoJGDQMVs7fYEQaJ">Screen — builder</span></div>
+      <div class="shot s2" data-page-node-id="0zBTlNVFjySCbZ3ljdGlxi"><span data-page-node-id="dWuUqTRnll3BCCNgltl2RY">Screen — filters</span></div>
+      <div class="shot s3" data-page-node-id="HJBFSfpVyXXMAXYIuRF5GO"><span data-page-node-id="HHSmTwYKEnxDeSdwISTbN4">Screen — results</span></div>
+      <div class="shot s4" data-page-node-id="OZUS6MPYEaA6nV5xf43FGE"><span data-page-node-id="VwILLsQJ7VaMhBGf1mBFId">Screen — saved views</span></div>
+    </div>
+  </div>
+
+  <div class="wrap" data-page-node-id="HPnbVSR1HHRBE25GUPdT8p">
+    <div class="quote" data-reveal data-page-node-id="JheUDVKRAB99eXHHuQZRvY">
+      <p data-page-node-id="JaT4CpodyeixcXRtfZqR8E">“I stopped asking the data team for things. That's the whole review.”</p>
+      <cite data-page-node-id="KCxuBBZ7WXo2VCt99Q4dKS">— Analyst, pilot group</cite>
+    </div>
+  </div>
+
+  <section class="block" data-page-node-id="ApNjq3IqIB9CEjFo88KUoe">
+    <div class="wrap" data-page-node-id="8PC7xSYVpBpBhwQu8dshaI">
+      <div class="block-head" data-reveal data-page-node-id="jNxURyVubvCBrHmeFED1Bt">
+        <span class="eyebrow" data-page-node-id="5gHPgKHQ1Kc465f2BwdjYF">04 — Outcomes</span>
+        <h2 class="h1" data-page-node-id="svUf1gDd9StDxo26CNntXM">What changed.</h2>
+      </div>
+      <div class="outcomes" data-reveal style="--d:90ms" data-page-node-id="weIQ1WLTMLPCWlonBej0Fj">
+        <div class="outcome" data-page-node-id="zdeFfrqk4dSNiGEutmvB7u">
+          <div class="outcome-num" data-page-node-id="A25fR0EfZaOAPw22wDGekh">3×</div>
+          <div class="outcome-l" data-page-node-id="1SJptGXpzg4pa43RGD9XZa">Task completion in moderated usability testing vs. the previous tool</div>
+        </div>
+        <div class="outcome" data-page-node-id="ijyuge4o4lvv8cfkZ4aaeJ">
+          <div class="outcome-num" data-page-node-id="ROth6dxGltwG0cama6lP4Q">−64%</div>
+          <div class="outcome-l" data-page-node-id="iOMgyZ7PWrskvDzF8oyGvn">Ad-hoc requests landing on the central data team</div>
+        </div>
+        <div class="outcome" data-page-node-id="ByM2jZTeGH7BCJAas17SpZ">
+          <div class="outcome-num" data-page-node-id="DsHidrkoJ3DSutv9lJccwc">2 days → 6 min</div>
+          <div class="outcome-l" data-page-node-id="XedtiUDf3kEVnONQi9Ykkq">Median time from question to answer, measured across the pilot</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-page-node-id="L8n1aUXE9RELARrAegAzGb">
+    <div class="wrap" data-page-node-id="dvhAZortEqPb9a0itBTIfX">
+      <div class="two" data-page-node-id="DuTmIChklfPlCX6yniW42A">
+        <div class="block-head" data-reveal data-page-node-id="tZCXs1GEB5GqOFzABZBiU3">
+          <span class="eyebrow" data-page-node-id="WAoUouFPW9EqaLhGIqB7xe">05 — What I'd redo</span>
+          <h2 class="h1" data-page-node-id="ktnnJn43umDjnDhOV5kj8U">Honest notes.</h2>
+        </div>
+        <div class="prose" data-reveal style="--d:110ms" data-page-node-id="TQvRd2uptqxW97s5xyXV9A">
+          <p data-page-node-id="ivoWQ99tqH4wT42GSma1Xh">
+            We shipped the saved-views feature two months late, and by then people had
+            already built workarounds in spreadsheets. <strong data-page-node-id="2zbtgSszcmoEzP89YeKKEh">The habit formed before
+            the feature arrived</strong>, and adoption never recovered.
+          </p>
+          <p data-page-node-id="NncOYFQmtEWm8QIHiqnvlS">
+            Next time I'd ship the sharing and saving layer first, even in a rough
+            state, and treat the builder as the thing that improves afterwards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-page-node-id="H6TgXslGzaGT0YzxB60WAE">
+    <div class="wrap" data-page-node-id="NyDJqB79CH84Oh2pUmeH7b">
+      <div class="next" data-reveal data-page-node-id="UZe5B6iUOUryVbgYj9mDRS">
+        <span class="eyebrow" style="display:inline-flex" data-page-node-id="WuxtQPEdKAzb1F4sGEgQeT">Next project</span>
+        <h2 data-page-node-id="TKfHgnm5QCwXDocAgtPzZ1">Nimbus design system</h2>
+        <a class="btn" href="case-study.html" data-page-node-id="V32cZ2B0yfi5DYDr6UGHwg">Read the case study ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-page-node-id="TRlIRiHIG5tRefl6Ao8MAA">
+  <div class="wrap" data-page-node-id="ODGWJSmMhJqjGeHZcdEd4E">
+    <div class="footer-inner" data-page-node-id="Ogzl9Adm27EsmAxdHwRQbX">
+      <span data-page-node-id="T6QbMNyJM6lnqCIp7uWCl8">© 2026 Ayodhya Ram Mohanthy</span>
+      <span data-page-node-id="uuC3qdSZsKUtjfsYzSM6GW">Built in Framer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dusk' || saved === 'day') root.setAttribute('data-theme', saved);
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dusk' ? 'day' : 'dusk';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 12); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  var els = document.querySelectorAll('[data-reveal]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Ayodhya Ram Mohanthy — Product Designer",
+  "short_name": "ayodhya.work",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF7F1",
+  "theme_color": "#FDF7F1",
+  "icons": [
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/icon-512.png",          "sizes": "512x512", "type": "image/png" }
+  ]
+}
