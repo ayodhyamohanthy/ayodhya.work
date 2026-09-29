@@ -294,10 +294,30 @@ footer{ padding:44px 0 54px; position:relative }
     transition-duration:.01ms !important; scroll-behavior:auto !important }
   [data-reveal]{ opacity:1; transform:none }
 }
+
+/* Skip link — the first stop for a keyboard or switch user, who otherwise
+   tabs the whole masthead on every page before reaching the work. Hidden
+   off-canvas until focused, then it lands on the main landmark. */
+.skip-link{
+  position:fixed; left:var(--pad,20px); top:-72px; z-index:999;
+  display:inline-flex; align-items:center;
+  padding:12px 22px; border-radius:100px;
+  background:var(--ink); color:var(--cream);
+  font-family:var(--font-sans); font-weight:600; font-size:14px;
+  text-decoration:none; box-shadow:0 12px 28px -8px rgba(51,41,31,.5);
+  transition:top .25s cubic-bezier(.22,1,.36,1);
+}
+.skip-link:focus{ top:16px; }
+/* The landmark takes focus programmatically, so it must not paint a ring of
+   its own on top of the one the link already showed. */
+main:focus{ outline:none; }
+@media (prefers-reduced-motion: reduce){ .skip-link{ transition:none; } }
 </style>
 </head>
 
 <body data-page-node-id="CMqzRvW2bPzZCuuqBKIkKw">
+<a class="skip-link" href="#main">Skip to content</a>
+
 
 <!-- BUI 01 — Loading state: painted before the page finishes parsing,
      so it covers a real navigation instead of flashing on the way out -->
@@ -333,7 +353,7 @@ footer{ padding:44px 0 54px; position:relative }
   </nav>
 </div>
 
-<main data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr">
+<main data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr" id="main" tabindex="-1">
   <section class="cs-hero" data-page-node-id="2XxcDgm50fiJJ5xPLlUEBW">
     <div class="wrap" data-page-node-id="m4fMItGJGGJdlYB0rK3EEF">
       <a class="back" href="index.html" data-reveal data-bui-nav="Back to all work…" data-page-node-id="Zs21l6HQ6RefEQDGbjm2XL">← Back to selected work</a>
