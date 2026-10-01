@@ -294,10 +294,17 @@ footer{ padding:44px 0 54px; position:relative }
     transition-duration:.01ms !important; scroll-behavior:auto !important }
   [data-reveal]{ opacity:1; transform:none }
 }
+
+  /* skip to content: hidden until keyboard focus */
+  .skip-link{ position:absolute; left:-9999px; top:0; z-index:999;
+    background:var(--cream); color:var(--ink); font-family:inherit;
+    padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:600 }
+  .skip-link:focus{ left:12px; top:12px }
 </style>
 </head>
 
 <body data-page-node-id="CMqzRvW2bPzZCuuqBKIkKw">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- BUI 01 — Loading state: painted before the page finishes parsing,
      so it covers a real navigation instead of flashing on the way out -->
@@ -333,7 +340,7 @@ footer{ padding:44px 0 54px; position:relative }
   </nav>
 </div>
 
-<main data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr">
+<main id="main" data-page-node-id="7ZnWnuXr1AuGht6ryRZgQr">
   <section class="cs-hero" data-page-node-id="2XxcDgm50fiJJ5xPLlUEBW">
     <div class="wrap" data-page-node-id="m4fMItGJGGJdlYB0rK3EEF">
       <a class="back" href="index.html" data-reveal data-bui-nav="Back to all work…" data-page-node-id="Zs21l6HQ6RefEQDGbjm2XL">← Back to selected work</a>
