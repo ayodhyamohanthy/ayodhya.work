@@ -26,6 +26,7 @@
   --bui-amber:       #A9761A;
   --bui-amber-tint:  rgba(242,215,155,.34);
   --bui-rose:        #C4676F;
+  --bui-rose-ink:    #C4676F;
   --bui-rose-tint:   rgba(228,157,164,.22);
   --bui-sage-ink:    #4C7243;
   --bui-lilac-ink:   #6F5C93;
@@ -50,6 +51,7 @@
   --bui-amber:       #F5DFA9;
   --bui-amber-tint:  rgba(245,223,169,.16);
   --bui-rose:        #EEAEB4;
+  --bui-rose-ink:    #A04B56;
   --bui-rose-tint:   rgba(238,174,180,.16);
   --bui-sage-ink:    #B6CFAD;
   --bui-lilac-ink:   #CDBCE4;
@@ -374,7 +376,7 @@ kbd{
   line-height:1;
   cursor:pointer;
 }
-.bui-chip__x:hover{ opacity:1; color:var(--bui-rose) }
+.bui-chip__x:hover{ opacity:1; color:var(--bui-rose-ink) }
 
 .bui-filter__clear{
   border:0;
