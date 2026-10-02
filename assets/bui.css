@@ -123,6 +123,8 @@ kbd{
   color:var(--bui-faint);
 }
 
+.bui-palette__input:focus-within{ border-color:var(--bui-accent) }
+
 .bui-palette__input input{
   flex:1;
   min-width:0;
