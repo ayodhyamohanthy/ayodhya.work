@@ -217,7 +217,7 @@ a{ color:inherit; text-decoration:none }
   grid-template-columns:auto 1fr; gap:18px; align-items:start; transition:background .35s var(--ease) }
 .finding:hover{ background:var(--surface-2) }
 .finding b{ font-family:var(--font-display); font-size:15px; color:var(--peach); padding-top:2px }
-.finding div h4{ margin:0 0 5px; font-size:15.5px; font-weight:600; letter-spacing:-.01em }
+.finding div h3{ margin:0 0 5px; font-size:15.5px; font-weight:600; letter-spacing:-.01em }
 .finding div p{ margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.65 }
 
 /* outcomes */
@@ -294,10 +294,17 @@ footer{ padding:44px 0 54px; position:relative }
     transition-duration:.01ms !important; scroll-behavior:auto !important }
   [data-reveal]{ opacity:1; transform:none }
 }
+
+  /* skip to content: hidden until keyboard focus */
+  .skip-link{ position:absolute; left:-9999px; top:0; z-index:999;
+    background:var(--cream); color:var(--ink); font-family:inherit;
+    padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:600 }
+  .skip-link:focus{ left:12px; top:12px }
 </style>
 </head>
 
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- BUI 01 — Loading state: painted before the page finishes parsing,
      so it covers a real navigation instead of flashing on the way out -->
@@ -333,7 +340,7 @@ footer{ padding:44px 0 54px; position:relative }
   </nav>
 </div>
 
-<main>
+<main id="main">
   <section class="cs-hero">
     <div class="wrap">
       <a class="back" href="index.html" data-reveal data-bui-nav="Back to all work…">← Back to selected work</a>
@@ -396,21 +403,21 @@ footer{ padding:44px 0 54px; position:relative }
         <div class="finding">
           <b>01</b>
           <div>
-            <h4>Analysts think in outcomes, not joins</h4>
+            <h3>Analysts think in outcomes, not joins</h3>
             <p>Every interview started with the business question, never the table. The interface had to begin where they began.</p>
           </div>
         </div>
         <div class="finding">
           <b>02</b>
           <div>
-            <h4>Trust came from visibility</h4>
+            <h3>Trust came from visibility</h3>
             <p>People forgave a wrong result they could inspect. They never forgave a right result they couldn't.</p>
           </div>
         </div>
         <div class="finding">
           <b>03</b>
           <div>
-            <h4>Partial credit beats a blank page</h4>
+            <h3>Partial credit beats a blank page</h3>
             <p>A query that got someone 80% of the way was still a win — if they could see and edit the last 20%.</p>
           </div>
         </div>
