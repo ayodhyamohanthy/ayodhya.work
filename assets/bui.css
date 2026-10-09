@@ -823,3 +823,12 @@ kbd{
   .bui-palette__panel{ border-radius:24px }
   .bui-kbtn kbd{ display:none }
 }
+
+/* Skip link: first focusable element on every page */
+.skip-link{
+  position:fixed; left:16px; top:-60px; z-index:10000;
+  background:#1a1a1a; color:#fff; padding:10px 18px; border-radius:10px;
+  font-size:14px; font-weight:600; text-decoration:none;
+  transition:top .15s ease;
+}
+.skip-link:focus{ top:16px; outline:2px solid #fff050; outline-offset:2px; }
