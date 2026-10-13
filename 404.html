@@ -2,6 +2,7 @@
 <html lang="en" data-theme="day">
 <head>
 <meta charset="UTF-8" />
+<script>try{var t=localStorage.getItem('theme');if(t==='dusk'||t==='day')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Page not found · ayodhya.work</title>
 <meta name="robots" content="noindex" />
@@ -56,6 +57,12 @@
   a.btn:hover{transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(51,41,31,.5)}
   .arw{transition:transform .35s cubic-bezier(.22,1,.36,1)}
   a.btn:hover .arw{transform:translate(3px,-3px)}
+
+  /* warm dusk mode, tokens matching index.html */
+  [data-theme="dusk"]{
+    --cream:#241C16; --ink:#F6EDE3; --ink-soft:#C4AF9E; --ink-faint:#93806F;
+    --peach:#F0A97F; --apricot:#F9CB9C; --rose:#EEAEB4; --sage:#B6CFAD; --lilac:#CDBCE4;
+  }
 </style>
 </head>
 <body>
