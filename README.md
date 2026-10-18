@@ -8,7 +8,7 @@ visually distinct from the default "dark portfolio on a serif" template.
 ## Stack
 
 - Static HTML + CSS + a single ~6 KB inline `<script>` block
-- Fraunces (display) + Plus Jakarta Sans (body) via Google Fonts
+- Fraunces (display) + Plus Jakarta Sans (body), self-hosted in `assets/fonts/` (woff2, OFL, latin + latin-ext)
 - No build step, no framework, no npm
 - One warm light theme + a warm **dusk** dark theme (data-theme toggle, persisted)
 
