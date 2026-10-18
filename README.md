@@ -7,7 +7,7 @@ visually distinct from the default "dark portfolio on a serif" template.
 
 ## Stack
 
-- Static HTML + CSS + a single ~6 KB inline `<script>` block
+- Static HTML + CSS (`assets/bui.css`) + JavaScript: a small inline `<script>` block per page plus `assets/bui.js`
 - Fraunces (display) + Plus Jakarta Sans (body) via Google Fonts
 - No build step, no framework, no npm
 - One warm light theme + a warm **dusk** dark theme (data-theme toggle, persisted)
@@ -15,7 +15,7 @@ visually distinct from the default "dark portfolio on a serif" template.
 ## What's in here
 
 ```
-portfolio-warm/
+ayodhya.work/
 ├── index.html              # Home
 ├── case-study.html         # Case study (Atlas — Query builder)
 ├── 404.html                # Friendly 404
@@ -24,20 +24,20 @@ portfolio-warm/
 ├── CNAME                   # → ayodhya.work (for GitHub Pages)
 ├── .nojekyll               # tells GitHub Pages not to run Jekyll
 ├── assets/
-│   ├── favicon.svg
+│   ├── bui.css             # shared styles + design tokens
+│   ├── bui.js              # shared UI components
+│   ├── favicon.svg / favicon.ico / favicon-32.png / icon-32.png
+│   ├── icon-180.png / icon-512.png / android-chrome-192.png
 │   ├── apple-touch-icon.png    180×180
-│   ├── icon-512.png            512×512 (PWA)
-│   ├── og-image.png           1200×630
+│   ├── og-image.png        1200×630
 │   └── manifest.webmanifest
 ├── DEPLOY.md               # How to ship this (GitHub Pages + Framer paths)
-├── FRAMER-BUILD-GUIDE-WARM.md   # Component-by-component Framer rebuild spec
 └── README.md
 ```
 
 ## Local preview
 
 ```bash
-cd portfolio-warm
 python3 -m http.server 8899
 # → http://localhost:8899
 ```
@@ -51,14 +51,13 @@ lilac `#C0AEDA`, butter `#F2D79B`.
 Radii: 14 / 22 / 34 / 46 / pill 100.
 Shadows: warm brown `rgba(90,60,35, …)`. Never pure black.
 
-Full token list + Framer setup lives in `FRAMER-BUILD-GUIDE-WARM.md`.
+Full token list lives in the `:root` variables of `assets/bui.css`.
 
 ## Deploying
 
 Read `DEPLOY.md`. TL;DR:
 
 ```bash
-cd portfolio-warm
 git init && git add . && git commit -m "Initial"
 gh repo create ayodhya.work --public --source=. --remote=origin --push
 ```

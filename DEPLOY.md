@@ -17,10 +17,9 @@ admin access to `ayodhya.work` on Hover, and a browser.
 
 ### 1. Push the site to a GitHub repo
 
-From the `portfolio-warm` folder:
+From the repo root:
 
 ```bash
-cd portfolio-warm
 git init
 git add .
 git commit -m "Initial portfolio"
@@ -104,7 +103,7 @@ SSL is free. No bandwidth cap worth worrying about for a portfolio.
 
 Framer's free student plan = the **Basic** plan ($120/yr value), including a
 custom domain and CMS. The catch: **you rebuild the site inside Framer's
-canvas** using the spec in `FRAMER-BUILD-GUIDE-WARM.md`. ~90–120 min.
+canvas** using the spec in `FRAMER-BUILD-GUIDE-WARM.md` (the guide file is not checked into this repo). ~90–120 min.
 
 ### 1. Apply
 
@@ -127,7 +126,7 @@ checkout. Don't pay anything; the coupon zeroes it out.
 
 ### 3. Rebuild
 
-Use `FRAMER-BUILD-GUIDE-WARM.md` as the spec. Component-by-component. The guide
+Use `FRAMER-BUILD-GUIDE-WARM.md` as the spec (it is not checked into this repo). Component-by-component. The guide
 includes:
 
 - exact colors, text styles, shadows
