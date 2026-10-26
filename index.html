@@ -1270,7 +1270,9 @@ footer{ padding:44px 0 54px; position:relative }
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         navLinks.forEach(function (a) {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          var on = a.getAttribute('href') === '#' + entry.target.id;
+          a.classList.toggle('active', on);
+          if (on) { a.setAttribute('aria-current', 'page'); } else { a.removeAttribute('aria-current'); }
         });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
