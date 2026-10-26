@@ -1,0 +1,63 @@
+/* ============================================================
+   print.css — print layout for ayodhya.work
+   Loaded with media="print", after each page's inline styles,
+   so these rules win the cascade on paper.
+   ============================================================ */
+
+@media print{
+  /* Force the light "day" token set even if the page was left in
+     the dusk theme when the visitor hit print. */
+  html[data-theme="dusk"]{
+    --cream:#FDF7F1; --cream-2:#F8EDE2; --blush:#F6E3DA;
+    --surface:#FFFFFF; --surface-2:#FFFBF7;
+    --ink:#33291F; --ink-soft:#7A6857; --ink-faint:#A89687;
+    --peach:#E99568; --apricot:#F7C08A; --rose:#E49DA4;
+    --sage:#A9C4A2; --lilac:#C0AEDA; --butter:#F2D79B;
+    --line:rgba(51,41,31,.10); --line-2:rgba(51,41,31,.16);
+  }
+
+  html{ background:#fff }
+  body{
+    background:#fff; color:#1C1712;
+    font-size:11pt; line-height:1.55;
+    padding:0; overflow:visible;
+  }
+  *{
+    box-shadow:none !important;
+    text-shadow:none !important;
+    transition:none !important;
+    animation:none !important;
+  }
+
+  /* Screen-only chrome */
+  .nav, footer, .to-top,
+  .bui-palette, .bui-palette__scrim, .bui-kbtn,
+  .grain, .blob{ display:none !important }
+
+  /* Scroll-reveal content must print even when the observer never fired */
+  [data-reveal]{ opacity:1 !important; transform:none !important }
+
+  main{ padding:0 !important; max-width:100% !important }
+  .cs-hero{ padding:0 0 16pt !important }
+
+  h1, h2, h3{ break-after:avoid; color:#33291F }
+  .block, figure, pre, blockquote{ break-inside:avoid }
+  img{ max-width:100% !important }
+  a{ color:#1C1712; text-decoration:none }
+
+  /* Show where external links go, in the body copy only */
+  main a[href^="http"]::after{
+    content:" (" attr(href) ")";
+    font-size:8.5pt; color:#7A6857;
+    word-break:break-all;
+  }
+
+  /* .next prints with a dark background on screen, but browsers strip
+     backgrounds by default: flatten it to ink-on-white so it stays readable */
+  .next{ background:#fff !important; color:var(--ink) !important;
+         box-shadow:none !important; border:1px solid #E4DDD2 !important }
+  .next *{ color:var(--ink) !important }
+  .next a{ color:var(--ink) !important; text-decoration:underline !important }
+  .next [class]{ background-image:none !important }
+  @page{ margin:16mm }
+}
